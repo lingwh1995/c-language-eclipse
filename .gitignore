@@ -363,6 +363,4 @@ FodyWeavers.xsd
 
 /.metadata/
 .settings
-.cproject
-.project
 .classpath
