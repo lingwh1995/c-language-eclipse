@@ -19,19 +19,23 @@
  *		格式化代码                   Ctrl+K+D
  *		折叠或展开代码块              Ctrl+M+M
  *		跳转行号                     Ctrl+G
- *	5.用于注释的预处理指令 #if 0 ... #endif
+ *	5.用于注释的预处理指令
  *		#if 0
- *			int main(){
- *				return 0;
- *			}
+ *			...
+ *		#endif
+ *
+ *		#if 0
+ *		int main(){
+ *			return 0;
+ *		}
  *		#endif
  *  6.system函数
- *		暂停程序		system("pause")
+ *		暂停程序	system("pause")
  *		调用计算器	system("calc")
  * 
- * MinGw
+ *  MinGw
  *      https://sourceforge.net/projects/mingw-w64/
- * C语言参考网站
+ *  C语言参考网站
  *      https://zh.cppreference.com/w/
  *      https://cplusplus.com/
  */
