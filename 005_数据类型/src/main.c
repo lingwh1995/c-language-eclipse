@@ -6,6 +6,7 @@
  *   C语言数据类型
  *     1.基本数据类型：
  *       整型数据类型：short、int、long、long long
+ *       	注意：short就是short int, long就是long int, long long就是long long int
  *       字符数据类型：char
  *       浮点型数据类型：float、double
  *       布尔类型：0/false、 1、true
@@ -21,6 +22,7 @@
  *
  */
 
+
 /**
  * 定义一个结构体Person
  */
@@ -34,6 +36,7 @@ struct Student
 	int age;
 };
 
+
 /**
  * 颜色枚举
  */
@@ -43,6 +46,8 @@ enum Color
 	GREEN,	//默认为 1
 	BLUE	//默认为 2
 };
+
+
 /**
  * 打印颜色
  *   使用枚举约束了case后面的值
@@ -63,13 +68,19 @@ void printColor(enum Color color) {
     }
 }
 
+
 int main()
 {
-	// 整型数据类型
+	/* 整型数据类型 */
+	// short就是short int
     printf("short类型所占字节大小: %d\n", sizeof(short));
     printf("int类型所占字节大小: %d\n", sizeof(int));
+    // long就是long int
     printf("long类型所占字节大小: %d\n", sizeof(long));
+    printf("long int类型所占字节大小: %d\n", sizeof(long int));
+    // long long就是long long int
     printf("long long类型所占字节大小: %d\n", sizeof(long long));
+    printf("long long int类型所占字节大小: %d\n", sizeof(long long int));
     printf("-------------------------------------\n");
 
 
@@ -81,6 +92,7 @@ int main()
     // 浮点型数据类型
     printf("float类型所占字节大小: %d\n", sizeof(float));
     printf("double类型所占字节大小: %d\n", sizeof(double));
+    printf("long double类型所占字节大小: %d\n", sizeof(long double));
     printf("-------------------------------------\n");
 
 
@@ -88,10 +100,47 @@ int main()
     printf("bool类型所占字节大小: %d\n", sizeof(bool));
     printf("-------------------------------------\n");
 
+    // short类型
+    short s_signed = -100;
+    unsigned short s_unsigned = 100;
+    printf("有符号 short: s_signed = %hd\n", s_signed);
+    printf("无符号 short: s_unsigned = %hu\n", s_unsigned);
+
+    // int类型
+    int i_signed = -200;
+    unsigned int i_unsigned = 200;
+    printf("有符号 int: i_signed = %d\n", i_signed);
+    printf("无符号 int: i_unsigned = %u\n", i_unsigned);
+
+    // long类型
+    long l_signed = -300L;  // 后缀L表示long类型
+    unsigned long l_unsigned = 300L;  // 后缀L表示long类型
+    printf("有符号 long: l_signed = %ld\n", l_signed);
+    printf("无符号 long: l_unsigned = %lu\n", l_unsigned);
+
+    // long long类型
+    long long ll_signed = -400LL;  // 后缀LL表示long long类型
+    unsigned long long ll_unsigned = 400LL;  // 后缀LL表示long long类型
+    printf("有符号 long long: ll_signed = %lld\n", ll_signed);
+    printf("无符号 long long: ll_signed = %llu\n", ll_unsigned);
+
+    // float类型
+    float f = 0.234f;
+    printf("float 值 (默认): f = %f\n", f);
+    printf("float 值 (2位小数): f = %.2f\n", f);
+    printf("科学计数法: f = %e\n", f);
+
+    // double类型
+    float d = 0.456;
+    printf("double 值 (默认): d = %lf\n", d);
+    printf("double 值 (2位小数): d = %.2lf\n", d);
+    printf("科学计数法: d = %e\n", d);
+    printf("-------------------------------------\n");
+
 
     // 数组(Array)
     int nums[] = { 10, 20, 30 };
-	int i;
+    int i;
 	int size = sizeof(nums)/sizeof(nums[0]);
     for(i=0; i<size; i++)
     {
@@ -127,6 +176,7 @@ int main()
     	printf("%d\n", i);
     }
     printf("-------------------------------------\n");
+
 
     // 指针
     int a = 100;
