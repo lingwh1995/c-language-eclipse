@@ -1,14 +1,10 @@
 # include <stdio.h>
-//定义一个宏常量,预编译之后会被替换掉
-#define PI 3.14f
 
 /**
  * 章节内容:
  *      1.变量和常量
  *          变量: 初始化完成后值可以发生改变的量
  *          常量: 初始化完成后值不能发生改变的量
- *          宏常量:
- *          枚举常量:
  *      2.变量和常量的作用域
  *          全局变量/常量: 在函数外定义的变量
  *          局部变量/常量: 在函数中定义的变量
@@ -109,14 +105,6 @@ int main()
 
 
     /**
-     * 宏常量
-     */
-     // 打印宏常量
-    printf("宏定义的常量PI = %f\n", PI);
-    printf("-----------------------\n");
-
-
-    /**
      * 未初始化的常量和变量
      * 特别注意:未初始化的变量和常量都是一个随机值
      */
@@ -127,41 +115,5 @@ int main()
     printf("未初始化的变量是一个随机值 = %d\n", cx);
     printf("-----------------------\n");
 
-
-    /**
-     * 枚举常量(枚举也是一种常量)
-     *  注意:枚举常量的值只能是整形数据
-     */
-    enum sex
-    {
-        MALE,//男性
-        FEMALE,//女性
-        SECRET//保密
-    };
-    printf("MALE = %d\n", MALE);
-    printf("FEMALE = %d\n", FEMALE);
-    printf("SECRET = %d\n", SECRET);
-
-    enum week
-    {
-        MON = 1,
-        TUE = 2,
-        WED = 3
-    };
-    enum week wk;
-    wk = MON;
-    printf("wk = %d\n", wk);
-    wk = TUE;
-    printf("wk = %d\n", wk);
-
-    enum animal
-    {
-        DOG = 5,
-        CAT,
-        SHEEP
-    };
-    printf("DOG = %d\n", DOG);
-    printf("CAT = %d\n", CAT);
-    printf("SHEEP = %d\n", SHEEP);
     return 0;
 }
