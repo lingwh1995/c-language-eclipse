@@ -201,20 +201,6 @@ void PrintfTest()
 }
 
 
-/**
- * 计算三角形面积
- */
-void CalcAreaofTriangle()
-{
-	printf("请输入三角形的三条边的长度:\n");
-	float a = 0, b = 0, c = 0, p = 0, s = 0;
-	scanf("%f %f %f", &a, &b, &c);
-	p = (a + b + c) / 2;
-	s = sqrt(p * (p - a) * (p - b) * (p - c));
-	printf("三角形面积 s = %f", s);
-}
-
-
 #if 0
 //标准输入输出的基本测试
 int main()
@@ -230,7 +216,6 @@ int main()
 	//PutCharTest();
 	//PutsTest();
 	//PrintfTest();
-	CalcAreaofTriangle();
 	return 0;
 }
 #endif
