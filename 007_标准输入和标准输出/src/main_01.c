@@ -49,12 +49,12 @@ void StdinAndEOFTest3() {
 void StdinAndEOFTest4() {
     printf("请输入:\n");
     char ch = '\0';
-    //为什么getchar()可以放在while后面的大括号中,来接收多个字符,因为getchar()有一个缓冲区机制
+    // 为什么getchar()可以放在while后面的大括号中,来接收多个字符,因为getchar()有一个缓冲区机制
 
-    //错误写法
-    //while (ch = getchar() != '\n') {
-    //正确写法
-    //while ((ch = getchar()) != '\n') {
+    // 错误写法
+    // while (ch = getchar() != '\n') {
+    // 正确写法
+    // while ((ch = getchar()) != '\n') {
     while ((ch = getchar()) != EOF) {
         printf("ch = %c\n", ch);
     }

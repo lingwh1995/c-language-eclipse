@@ -7,10 +7,10 @@ int main()
 	 */
 	char c1 = '\t';
 	printf("+%c+\n", c1);
-	//输出反斜杠
+	// 输出反斜杠
 	printf("\\");
 	printf("\n");
-	//输出双引号
+	// 输出双引号
 	printf("\"");
 	printf("\n");
 

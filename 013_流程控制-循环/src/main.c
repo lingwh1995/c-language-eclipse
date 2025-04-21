@@ -16,7 +16,7 @@ void WhileLoopTest()
     while (i < 10)
     {
         printf("%d\n", i);
-        //如果屏蔽掉下面一行,则会是死循环
+        // 如果屏蔽掉下面一行,则会是死循环
         i++;
     }
 }

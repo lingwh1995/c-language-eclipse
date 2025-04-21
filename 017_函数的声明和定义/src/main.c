@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-// 函数的定义
+// 函数的声明
 float CalcAreaofTriangle(float a, float b, float c);
 
 /**

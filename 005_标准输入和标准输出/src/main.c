@@ -47,7 +47,7 @@ void GetCharTest()
 void GetsTest1()
 {
 	printf("请输入字符串: \n");
-	//必须规定字符串的长度,否则会报异常
+	// 必须规定字符串的长度,否则会报异常
 	char str[5] = "\0";
 	gets(str);
 	printf("str = %s\n", str);
@@ -59,13 +59,13 @@ void GetsTest1()
 void GetsTest2()
 {
 	printf("请输入字符串: \n");
-	//必须规定字符串的长度,否则会报异常
+	// 必须规定字符串的长度,否则会报异常
 	char str[30];
-	//一定要先将指针变量初始化
+	// 一定要先将指针变量初始化
 	char* string = str;
-	//也可以写成gets(str);
+	// 也可以写成gets(str);
 	gets(string);
-	//输出参数是已经定义好的"指针变量名"
+	// 输出参数是已经定义好的"指针变量名"
 	printf("%s\n", string);
 }
 
@@ -88,7 +88,7 @@ void ScanfTest1()
 void ScanfTest2()
 {
 	printf("请输入字符串: \n");
-	//必须规定字符串的长度,否则会报异常
+	// 必须规定字符串的长度,否则会报异常
 	char str[30];
 	scanf("%s", &str);
 	printf("str = %s\n", str);
@@ -118,7 +118,7 @@ void GetsAndScanfTest1()
 	gets(str_1);
 	printf("str_1 = %s\n", str_1);
 	printf("请输入字符串(使用空格隔开): \n");
-	//必须规定字符串的长度,否则会报异常
+	// 必须规定字符串的长度,否则会报异常
 	char str_2[30];
 	scanf("%s", &str_2);
 	printf("str_2 = %s\n", str_2);
@@ -144,7 +144,7 @@ void GetsAndScanfTest2()
 	char c;
 	scanf("%c",&c);
 	printf("c = %c\n", c);
-	//第二个scanf()直接接收了缓冲区中的换行符,无法接收用户输入的内容
+	// 第二个scanf()直接接收了缓冲区中的换行符,无法接收用户输入的内容
 	scanf("%c", &c);
 	printf("c = %c\n", c);
 }
@@ -171,11 +171,11 @@ void PutCharTest()
 void PutsTest()
 {
 	char name[] = "祖国!";
-	//用printf输出
+	// 用printf输出
 	printf("%s\n", name);
-	//用puts()输出
+	// 用puts()输出
 	puts(name);
-	//直接输出字符串
+	// 直接输出字符串
 	puts("我爱你!");
 }
 
@@ -184,17 +184,17 @@ void PutsTest()
  */
 void PrintfTest()
 {
-	//输出不同进制
+	// 输出不同进制
 	int a = 10;
 	printf("十进制=%d 八进制=%o 十六进制=%x\n", a, a, a);
 
-	//输出不同数据类型
+	// 输出不同数据类型
 	int b = 1;
 	float f = 3.14;
 	char c = 'a';
 	printf("a = %d, f = %f, c = %c\n", b, f, c);
 
-	//设置输出宽度
+	// 设置输出宽度
 	printf("%d%d\n", a, b);
 	printf("%5d%d\n", a, b);
 	printf("%-5d%d\n", a, b);
@@ -202,7 +202,7 @@ void PrintfTest()
 
 
 #if 0
-//标准输入输出的基本测试
+// 标准输入输出的基本测试
 int main()
 {
 	//GetCharTest();

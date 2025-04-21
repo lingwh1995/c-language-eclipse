@@ -25,9 +25,9 @@ int main()
      */
     enum sex
     {
-        MALE,//男性
-        FEMALE,//女性
-        SECRET//保密
+        MALE, // 男性
+        FEMALE, // 女性
+        SECRET // 保密
     };
     printf("MALE = %d\n", MALE);
     printf("FEMALE = %d\n", FEMALE);
