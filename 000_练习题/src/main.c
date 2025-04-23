@@ -55,23 +55,48 @@ void Question_002_LoopPrintAToG()
 
 /**
  * 3.求最大公约数 方式一：暴力穷举
+ * 		a.找出a和b中最小的数，把这个数赋值给c
+ * 		b.第一个满足 a%c==0 && b%c==0 的数就是a和b的最大公约数
  */
 void Question_003_GreatestCommonDivisor()
 {
-	//int a, b;
-	//scanf("%d %d", &a, &b);
-	int a = 100, b = 38;
+	int a, b;
+	scanf("%d %d", &a, &b);
 	int c = a<b ? a : b;
-	while(!(a%c==0 && b%c==0)){
+	while(c>1)
+	{
+		if(a%c==0 && b%c==0)
+		{
+			break;
+		}
 		c--;
 	}
-	printf("c = %d", c);
+	printf("最大公约数 = %d", c);
+}
+
+/**
+ * 4.求最大公约数 方式二：辗转相除法
+ * 		gcd(a,b) = gcd(b, a mod b);
+ */
+void Question_004_GreatestCommonDivisor()
+{
+	int a, b, mod;
+	//scanf("%d %d", &a, &b);
+	a = 100, b = 40;
+
+	while(mod != 0) {
+		mod = a % b;
+		a = b;
+		b = mod;
+	}
+	printf("最大公约数 = %d",a);
 }
 
 int main()
 {
 	//Question_001_LoopPrintAToG();
 	//Question_002_LoopPrintAToG();
-	Question_003_GreatestCommonDivisor();
+	//Question_003_GreatestCommonDivisor();
+	Question_004_GreatestCommonDivisor();
 	return 0;
 }
