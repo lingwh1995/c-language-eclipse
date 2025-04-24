@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 /**
  * 题目列表
  * 1.循环打印 a-g 方式一：不使用取余运算
  * 2.循环打印 a-g 方式二：使用取余运算
  * 3.求最大公约数 方式一：暴力穷举
- *
+ * 4.求最大公约数 方式二：辗转相除法
+ * 5.求最大公约数 方式三：更相减损术(辗转相减法)
+ * 6.求最小公倍数
  */
 
 /**
@@ -76,14 +79,12 @@ void Question_003_GreatestCommonDivisor()
 
 /**
  * 4.求最大公约数 方式二：辗转相除法
- * 		gcd(a,b) = gcd(b, a mod b);
+ * 		公式：gcd(a,b) = gcd(b, a mod b);
  */
 void Question_004_GreatestCommonDivisor()
 {
 	int a, b, mod;
-	//scanf("%d %d", &a, &b);
-	a = 100, b = 40;
-
+	scanf("%d %d", &a, &b);
 	while(mod != 0) {
 		mod = a % b;
 		a = b;
@@ -92,11 +93,57 @@ void Question_004_GreatestCommonDivisor()
 	printf("最大公约数 = %d",a);
 }
 
+/**
+ * 5.求最大公约数 方式三：更相减损术(辗转相减法)
+ * 		公式：gcd(a, b) = gcd(b, a - b);
+ * 		注意：a<b时，要先交换a、b两个数的位置再进行相减
+ */
+void Question_005_GreatestCommonDivisor()
+{
+	int a, b, diff;
+	scanf("%d %d", &a, &b);
+	while(diff != 0) {
+        if(a < b)
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+		diff = a - b;
+		a = b;
+		b = diff;
+	}
+	printf("最大公约数 = %d",a);
+}
+
+/**
+ * 6.求最小公倍数
+ */
+
+void Question_006_LeastCommonMultiple()
+{
+	int a, b, lcm;
+	scanf("%d %d", &a, &b);
+	lcm = a > b ? a : b;
+	while(true)
+	{
+		if(lcm%a==0 && lcm%b==0)
+		{
+			break;
+		}
+		++lcm;
+	}
+	printf("最小公倍数 = %d", lcm);
+}
+
+
 int main()
 {
 	//Question_001_LoopPrintAToG();
 	//Question_002_LoopPrintAToG();
 	//Question_003_GreatestCommonDivisor();
-	Question_004_GreatestCommonDivisor();
+	//Question_004_GreatestCommonDivisor();
+	//Question_005_GreatestCommonDivisor();
+	Question_006_LeastCommonMultiple();
 	return 0;
 }
