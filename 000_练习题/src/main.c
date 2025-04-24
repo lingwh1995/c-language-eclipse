@@ -9,7 +9,9 @@
  * 3.求最大公约数 方式一：暴力穷举
  * 4.求最大公约数 方式二：辗转相除法
  * 5.求最大公约数 方式三：更相减损术(辗转相减法)
- * 6.求最小公倍数
+ * 6.求最小公倍数 方式一：暴力穷举
+ * 7.求最小公倍数 方式二：利用最大公约数
+ * 8.求最小公倍数 方式三：最小i值法
  */
 
 /**
@@ -117,9 +119,8 @@ void Question_005_GreatestCommonDivisor()
 }
 
 /**
- * 6.求最小公倍数
+ * 6.求最小公倍数 方式一：暴力穷举
  */
-
 void Question_006_LeastCommonMultiple()
 {
 	int a, b, lcm;
@@ -136,6 +137,42 @@ void Question_006_LeastCommonMultiple()
 	printf("最小公倍数 = %d", lcm);
 }
 
+/**
+ * 7.求最小公倍数 方式二：利用最大公约数 int lcm = a*b / gcd(a,b)
+ */
+int gcd(int a, int b)
+{
+	int mod;
+	while(mod != 0) {
+		mod = a % b;
+		a = b;
+		b = mod;
+	}
+	return a;
+}
+void Question_007_LeastCommonMultiple()
+{
+	int a, b, lcm;
+	scanf("%d %d", &a, &b);
+	lcm = a*b / gcd(a,b);
+	printf("最小公倍数 = %d", lcm);
+}
+
+/**
+ * 8.求最小公倍数 方式三：最小i值法
+ */
+void Question_008_LeastCommonMultiple()
+{
+	int a, b, lcm;
+	scanf("%d %d", &a, &b);
+	int i = 1;
+	while(a*i % b != 0)
+	{
+		i++;
+	}
+	lcm = a * i;
+	printf("最小公倍数 = %d", lcm);
+}
 
 int main()
 {
@@ -144,6 +181,8 @@ int main()
 	//Question_003_GreatestCommonDivisor();
 	//Question_004_GreatestCommonDivisor();
 	//Question_005_GreatestCommonDivisor();
-	Question_006_LeastCommonMultiple();
+	//Question_006_LeastCommonMultiple();
+	//Question_007_LeastCommonMultiple();
+	Question_008_LeastCommonMultiple();
 	return 0;
 }
