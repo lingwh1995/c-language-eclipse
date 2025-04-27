@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 /**
  * 标准输入和EOF
@@ -60,11 +61,32 @@ void StdinAndEOFTest4() {
     }
 }
 
+
 /**
- * 标准输入测试：接收多个字符(输入Ctrl+z+换行符结束)
- * 输入IQ值，通过IQ值判断是不是Genius，IQ>=140是Genius
+ * 标准输入测试：接收多个字符串(输入Ctrl+z+换行符结束)
+ *    输入水果名称，通过水果名称判断是不是最喜爱的运动，如果输入的是 apple 就是最喜爱的水果
  */
 void StdinAndEOFTest5() {
+    printf("请输入名称:\n");
+    char fruitName;
+    while (scanf("%s", &fruitName) != EOF) {
+        if(strcmp(&fruitName,"apple") == 0)
+        {
+            printf("是最喜爱的水果\n");
+        }
+        else
+        {
+            printf("不是最喜爱的水果\n");
+        }
+    }
+}
+
+
+/**
+ * 标准输入测试：接收多个数字(输入Ctrl+z+换行符结束)
+ *    输入IQ值，通过IQ值判断是不是Genius，IQ>=140是Genius
+ */
+void StdinAndEOFTest6() {
     printf("请输入IQ值:\n");
     int IQ;
     while (scanf("%d", &IQ) != EOF) {
@@ -79,10 +101,12 @@ void StdinAndEOFTest5() {
     }
 }
 
+
 int main() {
     //StdinAndEOFTest1();
 	//StdinAndEOFTest2();
     //StdinAndEOFTest3();
     //StdinAndEOFTest4();
-	StdinAndEOFTest5();
+	//StdinAndEOFTest5();
+	StdinAndEOFTest6();
 }
