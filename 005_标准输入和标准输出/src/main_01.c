@@ -63,7 +63,7 @@ void StdinAndEOFTest4() {
 
 int main() {
     //StdinAndEOFTest1();
-    //StdinAndEOFTest2();
+    StdinAndEOFTest2();
     //StdinAndEOFTest3();
-    StdinAndEOFTest4();
+    //StdinAndEOFTest4();
 }
