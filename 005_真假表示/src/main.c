@@ -25,9 +25,9 @@ void JudgeTrueOrFalse(int i)
 void C99Bool()
 {
 	bool b = true;
-	printf("b = %d 代表 真\n",b);
+	printf("true = %d 代表 真\n",b);
 	b = false;
-	printf("b = %d 代表 假\n",b);
+	printf("false = %d 代表 假\n",b);
 }
 
 
