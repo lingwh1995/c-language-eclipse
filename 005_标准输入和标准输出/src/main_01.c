@@ -43,8 +43,8 @@ void StdinAndEOFTest3() {
 
 
 /**
- * 标准输入测试
- *  接收多个字符
+ * 标准输入测试：接收多个字符(输入Ctrl+z+换行符结束)
+ *
  */
 void StdinAndEOFTest4() {
     printf("请输入:\n");
@@ -61,8 +61,8 @@ void StdinAndEOFTest4() {
 }
 
 /**
+ * 标准输入测试：接收多个字符(输入Ctrl+z+换行符结束)
  * 输入IQ值，通过IQ值判断是不是Genius，IQ>=140是Genius
- *  接收多个字符
  */
 void StdinAndEOFTest5() {
     printf("请输入IQ值:\n");
