@@ -60,10 +60,29 @@ void StdinAndEOFTest4() {
     }
 }
 
+/**
+ * 输入IQ值，通过IQ值判断是不是Genius，IQ>=140是Genius
+ *  接收多个字符
+ */
+void StdinAndEOFTest5() {
+    printf("请输入IQ值:\n");
+    int IQ;
+    while (scanf("%d", &IQ) != EOF) {
+        if(IQ >= 140)
+        {
+            printf("Genius\n");
+        }
+        else
+        {
+            printf("Not Genius\n");
+        }
+    }
+}
 
 int main() {
     //StdinAndEOFTest1();
-    StdinAndEOFTest2();
+	//StdinAndEOFTest2();
     //StdinAndEOFTest3();
     //StdinAndEOFTest4();
+	StdinAndEOFTest5();
 }
