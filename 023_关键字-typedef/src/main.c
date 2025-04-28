@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 /**
 * typedef:
 *  1.C语言允许为一个数据类型起一个新的别名.它本身是一种存储类的关键字,与auto、extern、mutable、static、register等关键字不能同时出现在一个表达式中
@@ -9,6 +10,11 @@
 *  3.typedef不是类似于宏定义的类型替换,只是给是类型的重命名,起一个别名而已
 *  4.typedef常和枚举和结构体结合使用
 */
+
+// 宏定义和typedef的对比
+#define MINT int *
+typedef PINT int *;
+
 
 void TypeDefTest()
 {
@@ -62,6 +68,7 @@ typedef struct User
     int age;
 } User, *PUser;
 
+
 /**
  * 测试typedef和结构体结合使用
  */
@@ -80,9 +87,22 @@ void TypeDefWithStructTest()
     PUser pUser = &user;
 }
 
+/**
+ * 宏定义和typedef的对比
+ */ 
+void MacroDefineAndTypedef()
+{
+    // 相当于 int *a, b; 宏只是做字符串替换
+    MINT a, b;
+    printf("%p",a);
+    // 相当于 int *i, int *j;
+    PINT i, j;
+}
+
 int main()
 {
     //TypeDefTest();
-    TypeDefWithStructTest();
-	return 0;
+    //TypeDefWithStructTest();
+    MacroDefineAndTypedef();
+    return 0;
 }
