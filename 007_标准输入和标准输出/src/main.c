@@ -105,6 +105,16 @@ void ScanfTest3()
 	printf("d = %f\n", d);
 }
 
+/**
+ * 测试scanf()返回值是 成功读取并正确赋值的变量数量
+ */
+void ScanfTest4()
+{
+    int i, j, k;
+    k = scanf("%d %d", &i, &j);
+    printf("k = %d\n", k);
+}
+
 /*
  * 测试get()和scanf()
  *	输入数据: i love you
@@ -262,6 +272,7 @@ int main()
 	//ScanfTest1();
 	//ScanfTest2();
 	//ScanfTest3();
+	//ScanfTest4();
 	//GetsAndScanfTest1();
 	//GetsAndScanfTest2();
 	//PutCharTest();
