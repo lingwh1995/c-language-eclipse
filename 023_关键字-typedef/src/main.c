@@ -13,7 +13,7 @@
 
 // 宏定义和typedef的对比
 #define MINT int *
-typedef PINT int *;
+typedef int* PINT;
 
 
 void TypeDefTest()
@@ -92,11 +92,12 @@ void TypeDefWithStructTest()
  */ 
 void MacroDefineAndTypedef()
 {
-    // 相当于 int *a, b; 宏只是做字符串替换
+    // 相当于 int *a; int b; 宏只是做字符串替换
     MINT a, b;
-    printf("%p",a);
+    printf("hello\n");
     // 相当于 int *i, int *j;
     PINT i, j;
+    printf("world\n");
 }
 
 int main()
