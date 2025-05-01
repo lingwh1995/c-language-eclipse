@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-//错误定义
+// 错误定义带参数的宏
 //#define SUM(x,y) x*y
-//正确定义
+// 正确定义带参数的宏
 #define SUM(x,y) (x)*(y)
 
 /**
