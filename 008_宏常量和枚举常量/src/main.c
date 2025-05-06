@@ -15,7 +15,7 @@ int main()
     /**
      * 宏常量
      */
-     // 打印宏常量
+    // 打印宏常量
     printf("宏定义的常量PI = %f\n", PI);
     printf("-----------------------\n");
 
@@ -51,6 +51,7 @@ int main()
         CAT,
         SHEEP
     };
+
     printf("DOG = %d\n", DOG);
     printf("CAT = %d\n", CAT);
     printf("SHEEP = %d\n", SHEEP);
