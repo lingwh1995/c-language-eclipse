@@ -1,7 +1,9 @@
 # include <stdio.h>
 # include <stdbool.h>
 
-
+/**
+ * 2022年版
+ */
 void PrintCalendar_(int year);
 
 #if 0
