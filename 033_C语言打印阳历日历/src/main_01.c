@@ -5,13 +5,13 @@
 void PrintCalendar_(int year);
 
 #if 0
-#endif
 int main()
 {
     //输入年份
     int year = 2023;
     PrintCalendar_(year);
 }
+#endif
 
 
 /**

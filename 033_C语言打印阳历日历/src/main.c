@@ -1,18 +1,23 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-
-void PrintCalendar(int year);
+/**
+ * 2025年版
+ */
+void PrintCalendarMondayToSunday(int year);
+void PrintCalendarSundayToSaturday(int year);
 
 
 #if 0
+#endif
 int main()
 {
     int year = 2025;
-    PrintCalendar(year);
+    //PrintCalendarMondayToSunday(year);
+    PrintCalendarSundayToSaturday(year);
     return 0;
 }
-#endif
+
 
 /**
  * 判断当前年份是否是闰年(闰年全年366天，2月29天，平年全年365天，2月28天)
@@ -76,10 +81,10 @@ int GetFirstDayOfCurrentMonthOfWeek(int year, int month)
 }
 
 /**
- * 打印日历
+ * 打印日历 周一到周日版
  * @param year 当前年份
  */ 
-void PrintCalendar(int year)
+void PrintCalendarMondayToSunday(int year)
 {
     printf("  年份：%d年\n", year);
     printf("  --------------------------\n\n");
@@ -97,16 +102,65 @@ void PrintCalendar(int year)
         int dayOfWeek = GetFirstDayOfCurrentMonthOfWeek(year,m) + 1;
         for(dow=1; dow<dayOfWeek; dow++)
         {
-        	printf("%s", blank);
+            printf("%s", blank);
         }
         for(d=1; d<=days; d++)
         {
-			printf("%4d", d);
-			if(dayOfWeek%7 == 0)
-			{
-			  printf("\n");
-			}
-			dayOfWeek++;
+            printf("%4d", d);
+            if(dayOfWeek%7 == 0)
+            {
+              printf("\n");
+            }
+            dayOfWeek++;
+        }
+        // 格式化日历换行
+        if((dayOfWeek-1)%7 == 0)
+        {
+            printf("\n");
+        }
+        else
+        {
+            printf("\n\n");
+        }
+    }
+}
+
+/**
+ * 打印日历 周日到周六版
+ * @param year 当前年份
+ */
+void PrintCalendarSundayToSaturday(int year)
+{
+    printf("  年份：%d年\n", year);
+    printf("  --------------------------\n\n");
+    int m, dow, d;
+    for(m=1; m<=12; m++)
+    {
+        // 1.计算当前年份每个月有多少天
+        int days = GetCurrentMonthDays(year, m);
+        printf("  月份：%2d月，本月天数：%d\n", m, days);
+        printf("  --------------------------\n");
+        printf("%4d%4d%4d%4d%4d%4d%4d\n", 7, 1, 2, 3, 4, 5, 6);
+        printf("  --------------------------\n");
+        const char blank[] = { "    " };
+        // 2.计算当前月第一天是星期几
+        int dayOfWeek = GetFirstDayOfCurrentMonthOfWeek(year,m) + 1;
+        for(dow=1; dow<=dayOfWeek; dow++)
+        {
+            if(dayOfWeek == 7)
+            {
+                break;
+            }
+            printf("%s", blank);
+        }
+        for(d=1; d<=days; d++)
+        {
+            dayOfWeek++;
+            printf("%4d", d);
+            if(dayOfWeek%7 == 0)
+            {
+              printf("\n");
+            }
         }
         // 格式化日历换行
         if((dayOfWeek-1)%7 == 0)
