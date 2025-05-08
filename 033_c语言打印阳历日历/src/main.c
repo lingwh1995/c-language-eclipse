@@ -98,22 +98,22 @@ void PrintCalendarMondayToSunday(int year)
         printf("  --------------------------\n");
         const char blank[] = { "    " };
         // 2.计算当前月第一天是星期几
-        int dayOfWeek = GetFirstDayOfCurrentMonthOfWeek(year,m) + 1;
-        for(dow=1; dow<dayOfWeek; dow++)
+        int day_of_week = GetFirstDayOfCurrentMonthOfWeek(year,m) + 1;
+        for(dow=1; dow<day_of_week; dow++)
         {
             printf("%s", blank);
         }
         for(d=1; d<=days; d++)
         {
             printf("%4d", d);
-            if(dayOfWeek%7 == 0)
+            if(day_of_week%7 == 0)
             {
               printf("\n");
             }
-            dayOfWeek++;
+            day_of_week++;
         }
         // 格式化日历换行
-        if((dayOfWeek-1)%7 == 0)
+        if((day_of_week-1)%7 == 0)
         {
             printf("\n");
         }
@@ -143,10 +143,10 @@ void PrintCalendarSundayToSaturday(int year)
         printf("  --------------------------\n");
         const char blank[] = { "    " };
         // 2.计算当前月第一天是星期几
-        int dayOfWeek = GetFirstDayOfCurrentMonthOfWeek(year,m) + 1;
-        for(dow=1; dow<=dayOfWeek; dow++)
+        int day_of_week = GetFirstDayOfCurrentMonthOfWeek(year,m) + 1;
+        for(dow=1; dow<=day_of_week; dow++)
         {
-            if(dayOfWeek == 7)
+            if(day_of_week == 7)
             {
                 break;
             }
@@ -154,15 +154,15 @@ void PrintCalendarSundayToSaturday(int year)
         }
         for(d=1; d<=days; d++)
         {
-            dayOfWeek++;
+        	day_of_week++;
             printf("%4d", d);
-            if(dayOfWeek%7 == 0)
+            if(day_of_week%7 == 0)
             {
               printf("\n");
             }
         }
         // 格式化日历换行
-        if((dayOfWeek-1)%7 == 0)
+        if((day_of_week-1)%7 == 0)
         {
             printf("\n");
         }

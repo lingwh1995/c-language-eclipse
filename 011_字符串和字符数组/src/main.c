@@ -14,7 +14,7 @@
 /*
  * 字符串的定义
  */
-void StrTest()
+void StringBasic()
 {
     // 定义一个字符串:方式1
 	//char s1[] = { "hello" };
@@ -37,7 +37,7 @@ void StrTest()
 /*
  * 字符数组的定义 + 字符串和字符数组的区别
  */
-void CharArrayTest()
+void StringAndCharArray()
 {
     // 普通字符数组
     char c1[] = { 'h', 'e', 'l', 'l', 'o' };
@@ -54,29 +54,38 @@ void CharArrayTest()
 }
 
 /**
- * 遍历字符数组的两种方式
+ * 遍历字符串方式一
  */
-void ForeachStringTest()
+void ForeachString1()
 {
-    char str[] = { "hello" };
-    // 遍历数组的方式1
-    for (int i = 0; i < strlen(str); i++)
+    char str[] = "hello";
+    int i;
+    for (i= 0; i < strlen(str); i++)
     {
         printf("%c\n", str[i]);
         printf("%p\n", &str[i]);
     }
-    // 遍历数组的方式2
-    printf("-------------------------\n");
-    for (int i = 0; str[i] != '\0'; i++)
+}
+
+/**
+ * 遍历字符串方式二
+ */
+void ForeachString2()
+{
+    char str[] = "world";
+    int i;
+    for (i = 0; str[i] != '\0'; i++)
     {
         printf("%c\n", str[i]);
+        printf("%p\n", &str[i]);
     }
 }
 
 int main()
 {
-	//StrTest();
-	//CharArrayTest();
-    ForeachStringTest();
+	//StringBasic();
+	//StringAndCharArray();
+	ForeachString1();
+	//ForeachString2();
 	return 0;
 }

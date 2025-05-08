@@ -2,8 +2,21 @@
 # include <ctype.h>
 
 /**
- * getchar()、if-else和ctype.h
- *  ctype.h: 判断一个字符是否为控制字符、数字、大写字母、小写字母
+ *  ctype.h常用方法
+ *  isalnum()		检查字符是否是字母或数字
+ *  isalpha()		检查字符是否是字母
+ *  islower()       检查字符是否是小写字母
+ *  isupper()       检查字符是否是大写字母
+ *  isdigit()       检查字符是否是数字
+ *  isxdigit()      检查字符是否是十六进制字符
+ *  iscntrl()       检查字符是否是控制字符
+ *  isgraph()       检查字符是否是图形字符
+ *  isspace()       检查字符是否是空白字符
+ *  isblank()       检查字符是否是空格字符
+ *  isprint()       检查字符是否是可打印字符
+ *  ispunct()       检查字符是否是标点字符
+ *  tolower()       将字符转换成小写
+ *  toupper()       将字符转换成大写
  */
 
  /**

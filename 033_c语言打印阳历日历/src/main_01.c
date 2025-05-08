@@ -108,14 +108,14 @@ void PrintCalendar_(int year)
         //根据年份和月份获取该月有多少天
         int days = GetDays(year, i);
         //求当前月第一天是星期几
-        int week = getDayOfWeek(year, i, 1);
+        int day_of_week = getDayOfWeek(year, i, 1);
         int k = 0;
         printf("  年份:%d     月份:%d\n", year, i);
         printf("  ---------------------------\n");
         printf("   7   1   2   3   4   5   6\n");
         printf("  ---------------------------\n");
         char str[] = { "    " };
-        for (int j = 0; j < week; j++) {
+        for (int j = 0; j < day_of_week; j++) {
             printf("%s", str);
             k = k + 1;
         }
