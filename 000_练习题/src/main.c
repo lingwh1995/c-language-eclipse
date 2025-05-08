@@ -4,18 +4,21 @@
 
 /**
  * 题目列表
- * 1.循环打印 a-g 方式一：不使用取余运算
- * 2.循环打印 a-g 方式二：使用取余运算
- * 3.求最大公约数 方式一：暴力穷举
- * 4.求最大公约数 方式二：辗转相除法
- * 5.求最大公约数 方式三：更相减损术(辗转相减法)
- * 6.求最小公倍数 方式一：暴力穷举
- * 7.求最小公倍数 方式二：利用最大公约数
- * 8.求最小公倍数 方式三：最小i值法
+ * 001.循环打印 a-g 方式一：不使用取余运算
+ * 002.循环打印 a-g 方式二：使用取余运算
+ * 003.求最大公约数 方式一：暴力穷举
+ * 004.求最大公约数 方式二：辗转相除法
+ * 005.求最大公约数 方式三：更相减损术(辗转相减法)
+ * 006.求最小公倍数 方式一：暴力穷举
+ * 007.求最小公倍数 方式二：利用最大公约数
+ * 008.求最小公倍数 方式三：最小i值法
+ * 009.输入三个整型数据，求最小值
+ * 010.输入三个整型数据，求中间值
+ * 011.输入三个整型数据，求最大值
  */
 
 /**
- * 1.循环打印 a-g 方式一：不使用取余运算
+ * 001.循环打印 a-g 方式一：不使用取余运算
  */
 void Question_001_LoopPrintAToG()
 {
@@ -38,7 +41,7 @@ void Question_001_LoopPrintAToG()
 }
 
 /**
- * 2.循环打印 a-g 方式二：使用取余运算
+ * 002.循环打印 a-g 方式二：使用取余运算
  */
 void Question_002_LoopPrintAToG()
 {
@@ -59,7 +62,7 @@ void Question_002_LoopPrintAToG()
 }
 
 /**
- * 3.求最大公约数 方式一：暴力穷举
+ * 003.求最大公约数 方式一：暴力穷举
  * 		a.找出a和b中最小的数，把这个数赋值给c
  * 		b.第一个满足 a%c==0 && b%c==0 的数就是a和b的最大公约数
  */
@@ -80,7 +83,7 @@ void Question_003_GreatestCommonDivisor()
 }
 
 /**
- * 4.求最大公约数 方式二：辗转相除法
+ * 004.求最大公约数 方式二：辗转相除法
  * 		公式：gcd(a,b) = gcd(b, a mod b);
  */
 void Question_004_GreatestCommonDivisor()
@@ -96,7 +99,7 @@ void Question_004_GreatestCommonDivisor()
 }
 
 /**
- * 5.求最大公约数 方式三：更相减损术(辗转相减法)
+ * 005.求最大公约数 方式三：更相减损术(辗转相减法)
  * 		公式：gcd(a, b) = gcd(b, a - b);
  * 		注意：a<b时，要先交换a、b两个数的位置再进行相减
  */
@@ -119,7 +122,7 @@ void Question_005_GreatestCommonDivisor()
 }
 
 /**
- * 6.求最小公倍数 方式一：暴力穷举
+ * 006.求最小公倍数 方式一：暴力穷举
  */
 void Question_006_LeastCommonMultiple()
 {
@@ -138,7 +141,7 @@ void Question_006_LeastCommonMultiple()
 }
 
 /**
- * 7.求最小公倍数 方式二：利用最大公约数 int lcm = a*b / gcd(a,b)
+ * 007.求最小公倍数 方式二：利用最大公约数 int lcm = a*b / gcd(a,b)
  */
 int gcd(int a, int b)
 {
@@ -159,7 +162,7 @@ void Question_007_LeastCommonMultiple()
 }
 
 /**
- * 8.求最小公倍数 方式三：最小i值法
+ * 008.求最小公倍数 方式三：最小i值法
  */
 void Question_008_LeastCommonMultiple()
 {
@@ -174,6 +177,50 @@ void Question_008_LeastCommonMultiple()
 	printf("最小公倍数 = %d", lcm);
 }
 
+/**
+ * 009.输入三个整型数据，求最小值
+ */ 
+void Question_009_getMinValue()
+{
+	printf("请输入三个整型数据，使用空格分隔:\n");
+	int a, b, c, min;
+	scanf("%d %d %d", &a, &b, &c);
+	min = a < b ? a : b;
+	min = min < c ? min : c;
+	printf("min = %d\n", min);
+}
+
+/**
+ * 010.输入三个整型数据，求中间值
+ */ 
+void Question_010_getMidValue()
+{
+	printf("请输入三个整型数据，使用空格分隔:\n");
+	int a, b, c, min, mid, max;
+	scanf("%d %d %d", &a, &b, &c);
+	// 求出三个数里面最小值
+	min = a < b ? a : b;
+	min = min < c ? min : c;
+	// 求出三个数里面最大值
+	max = a > b ? a : b;
+	max = max > c ? max : c;
+	mid = a + b + c - min - max;
+	printf("mid = %d\n", mid);
+}
+
+/**
+ * 011.输入三个整型数据，求最大值
+ */ 
+void Question_011_getMaxValue()
+{
+	printf("请输入三个整型数据，使用空格分隔:\n");
+	int a, b, c, max;
+	scanf("%d %d %d", &a, &b, &c);
+	max = a > b ? a : b;
+	max = max > c ? max : c;
+	printf("max = %d\n", max);
+}
+
 int main()
 {
 	//Question_001_LoopPrintAToG();
@@ -183,6 +230,9 @@ int main()
 	//Question_005_GreatestCommonDivisor();
 	//Question_006_LeastCommonMultiple();
 	//Question_007_LeastCommonMultiple();
-	Question_008_LeastCommonMultiple();
+	//Question_008_LeastCommonMultiple();
+	//Question_009_getMinValue();
+	//Question_010_getMidValue();
+	Question_011_getMaxValue();
 	return 0;
 }
