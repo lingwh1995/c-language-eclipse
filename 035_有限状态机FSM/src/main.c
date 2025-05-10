@@ -9,117 +9,67 @@
  *
  */
 
-//宏定义实现状态码
-# define BEGIN 0
-# define IN_WORD 1
-# define OUT_WORD 2
-# define END 3
 
-//枚举实现状态码(推荐使用)
+// 使用宏定义定义状态码
 /*
-enum state {
-    BEGIN_ENUM,
-    IN_WORD_ENUM,
-    OUT_WORD_ENUM,
-    END_ENUM
-};
+#define BEGIN 0
+#define IN_WORD 1
+#define OUT_WORD 2
+#define END 3
 */
 
-
-/*
- * 统计单词中出现的所有字母
- */
-void FSM1(char str[])
+// 使用枚举定义状态码
+enum state
 {
-    int i = 0;
-    //记录单词个数
-    int sum_alpha = 0;
-    int state = BEGIN;
-    //遍历字符串的新方式: 利用字符串最后一个字符是 \0 的特性
-    for (int i = 0; str[i] != '\0'; i++)
-    {
-        switch (state) {
-        case BEGIN:
-            if (isalpha(str[i])) {
-                state = IN_WORD;
-            }
-            else {
-                state = OUT_WORD;
-            }
-            break;
-        case IN_WORD:
-            if (!isalpha(str[i])) {
-                sum_alpha++;
-                state = OUT_WORD;
-            }
-            break;
-        case OUT_WORD:
-            if (isalpha(str[i])) {
-                state = IN_WORD;
-            }
-            break;
-        }
-    }
-    if (state == IN_WORD)
-    {
-        sum_alpha++;
-        state = END;
-    }
-    printf("sum_alpha = %d\n", sum_alpha);
-}
-
-/*
- * 统计单词中出现的所有字母和空格
- */
-void FSM2(char str[])
-{
-    int i = 0;
-    //记录单词个数
-    int sum_alpha = 0;
-    int sum_space = 0;
-    int state = BEGIN;
-    //遍历字符串的新方式: 利用字符串最后一个字符是 \0 的特性
-    for (int i = 0; str[i] != '\0'; i++)
-    {
-        switch (state) {
-        case BEGIN:
-            if (isalpha(str[i]))
-            {
-                state = IN_WORD;
-            }else {
-                state = OUT_WORD;
-                sum_space++;
-            }
-            break;
-        case IN_WORD:
-            if (!isalpha(str[i]))
-            {
-                sum_alpha++;
-                state = OUT_WORD;
-            }
-            break;
-        case OUT_WORD:
-            if (isalpha(str[i]))
-            {
-                state = IN_WORD;
-            }
-            sum_space++;
-            break;
-        }
-    }
-    if (state == IN_WORD)
-    {
-        sum_alpha++;
-        state = END;
-    }
-    printf("sum_alpha = %d\n", sum_alpha);
-    printf("sum_space = %d\n", sum_space);
-}
+    BEGIN,
+    IN_WORD,
+    OUT_WORD,
+    END
+};
 
 int main()
 {
-    char str[] = { " hello  c   lang    nice     " };
-    FSM1(str);
-    //FSM2(str);
+	char str[] = " one  two   three    four     five ";
+    // 用来记录单词的数量
+    int word_count = 0;
+    int state = BEGIN;
+    int i;
+    for(i=0; str[i] != '\0'; i++)
+    {
+        char c = str[i];
+        switch(state)
+        {
+            case BEGIN:
+                if(isalpha(c))
+                {
+                    state = IN_WORD;  
+                }
+                else
+                {
+                    state = OUT_WORD;  
+                }
+                break;
+            case IN_WORD:
+                if(!isalpha(c))
+                {
+                    word_count++;
+                    state = OUT_WORD; 
+                }
+                break;  
+            case OUT_WORD:
+                if(isalpha(c))
+                {
+                  state = IN_WORD;
+                }
+                break;            
+        }
+    }
+    if(state == IN_WORD)
+    {
+        word_count++;
+    }
+    state = END;
+    printf("单词个数：%d\n", word_count);
+    printf("状态机状态：%d\n", state);
     return 0;
 }

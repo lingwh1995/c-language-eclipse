@@ -15,6 +15,7 @@
  * 009.输入三个整型数据，求最小值
  * 010.输入三个整型数据，求中间值
  * 011.输入三个整型数据，求最大值
+ * 012.统计字符串中一共有多少个单词
  */
 
 /**
@@ -180,7 +181,7 @@ void Question_008_LeastCommonMultiple()
 /**
  * 009.输入三个整型数据，求最小值
  */ 
-void Question_009_getMinValue()
+void Question_009_GetMinValue()
 {
 	printf("请输入三个整型数据，使用空格分隔:\n");
 	int a, b, c, min;
@@ -193,7 +194,7 @@ void Question_009_getMinValue()
 /**
  * 010.输入三个整型数据，求中间值
  */ 
-void Question_010_getMidValue()
+void Question_010_GetMidValue()
 {
 	printf("请输入三个整型数据，使用空格分隔:\n");
 	int a, b, c, min, mid, max;
@@ -211,7 +212,7 @@ void Question_010_getMidValue()
 /**
  * 011.输入三个整型数据，求最大值
  */ 
-void Question_011_getMaxValue()
+void Question_011_GetMaxValue()
 {
 	printf("请输入三个整型数据，使用空格分隔:\n");
 	int a, b, c, max;
@@ -219,6 +220,32 @@ void Question_011_getMaxValue()
 	max = a > b ? a : b;
 	max = max > c ? max : c;
 	printf("max = %d\n", max);
+}
+
+/**
+ * 012.统计字符串中一共有多少个单词
+ */ 
+void Question_012_CountWord()
+{
+	char str[] = " one  two   three    four     five ";
+    int i, j, c = 0;
+    c = str[0] == ' ' ? 0 : 1;
+    for(i=0; str[i] != '\0'; i++)
+    {
+        if(str[i] != ' ')
+        {
+            if(j == 0)
+            {
+                c++;
+            }
+            j++;
+        }
+        else
+        {
+            j = 0;
+        }
+    }
+    printf("单词个数 = %d\n", c);
 }
 
 int main()
@@ -231,8 +258,9 @@ int main()
 	//Question_006_LeastCommonMultiple();
 	//Question_007_LeastCommonMultiple();
 	//Question_008_LeastCommonMultiple();
-	//Question_009_getMinValue();
-	//Question_010_getMidValue();
-	Question_011_getMaxValue();
+	//Question_009_GetMinValue();
+	//Question_010_GetMidValue();
+	//Question_011_GetMaxValue();
+	Question_012_CountWord();
 	return 0;
 }
