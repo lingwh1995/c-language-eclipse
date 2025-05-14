@@ -10,7 +10,7 @@
  */
 
 
-// 使用宏定义定义状态码
+// 使用宏定义定义状态码	- 不推荐
 /*
 #define BEGIN 0
 #define IN_WORD 1
@@ -18,7 +18,7 @@
 #define END 3
 */
 
-// 使用枚举定义状态码
+// 使用枚举定义状态码 - 推荐
 enum state
 {
     BEGIN,
