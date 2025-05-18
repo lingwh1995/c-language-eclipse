@@ -7,14 +7,13 @@
 void PrintCalendar_(int year);
 
 #if 0
-#endif
 int main()
 {
     //输入年份
     int year = 2023;
     PrintCalendar_(year);
 }
-
+#endif
 
 /**
  * 判断是否为闰年
@@ -104,7 +103,8 @@ int getDayOfWeek(int year, int month, int day)
 void PrintCalendar_(int year)
 {
     //当前年份
-    for (int i = 1; i <= 12; i++) {
+    for (int i = 1; i <= 12; i++)
+    {
         //根据年份和月份获取该月有多少天
         int days = GetDays(year, i);
         //求当前月第一天是星期几
@@ -115,14 +115,17 @@ void PrintCalendar_(int year)
         printf("   7   1   2   3   4   5   6\n");
         printf("  ---------------------------\n");
         char str[] = { "    " };
-        for (int j = 0; j < day_of_week; j++) {
+        for (int j = 0; j < day_of_week; j++)
+        {
             printf("%s", str);
             k = k + 1;
         }
-        for (int l = 1; l <= days; l++) {
+        for (int l = 1; l <= days; l++)
+        {
             printf("%4d", l);
             k = k + 1;
-            if (k % 7 == 0) {
+            if (k % 7 == 0)
+            {
                 printf("\n");
             }
         }

@@ -59,8 +59,7 @@ void StringAndCharArray()
 void ForeachString1()
 {
     char str[] = "hello";
-    int i;
-    for (i= 0; i < strlen(str); i++)
+    for (int i= 0; i < strlen(str); i++)
     {
         printf("%c\n", str[i]);
         printf("%p\n", &str[i]);
@@ -73,8 +72,7 @@ void ForeachString1()
 void ForeachString2()
 {
     char str[] = "world";
-    int i;
-    for (i = 0; str[i] != '\0'; i++)
+    for (int i = 0; str[i] != '\0'; i++)
     {
         printf("%c\n", str[i]);
         printf("%p\n", &str[i]);
@@ -85,7 +83,7 @@ int main()
 {
 	//StringBasic();
 	//StringAndCharArray();
-	ForeachString1();
-	//ForeachString2();
+	//ForeachString1();
+	ForeachString2();
 	return 0;
 }

@@ -8,7 +8,8 @@ void BreakTest()
 {
     for (int i = 0; i < 10; i++)
     {
-        if (i == 5) {
+        if (i == 5)
+        {
             break;
         }
         printf("i = %d\n", i);
@@ -24,7 +25,8 @@ void ContinueTest1()
 {
     for (int i = 0; i < 10; i++)
     {
-        if (i == 5) {
+        if (i == 5)
+        {
             continue;
         }
         printf("i = %d\n", i);
@@ -41,7 +43,8 @@ void ContinueTest2()
     for (int i = 0; i < 10; )
     {
         i++;
-        if (i == 5) {
+        if (i == 5)
+        {
             printf("不会进入死循环...\n");
             continue;
         }
@@ -98,7 +101,8 @@ void ContinueTest4()
  *  所以看起来效果和break相同,但是实际上是死循环
  *
  */
-void ContinueTest5() {
+void ContinueTest5()
+{
     int n = 0;
     while (n < 10)
     {

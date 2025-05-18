@@ -9,6 +9,7 @@ void PrintCalendarSundayToSaturday(int year);
 
 
 #if 0
+#endif
 int main()
 {
     int year = 2025;
@@ -16,7 +17,6 @@ int main()
     PrintCalendarSundayToSaturday(year);
     return 0;
 }
-#endif
 
 /**
  * 判断当前年份是否是闰年(闰年全年366天，2月29天，平年全年365天，2月28天)

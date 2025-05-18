@@ -12,7 +12,8 @@ int getDaysByMonth(int month)
     // 默认为闰年
     bool isLeap = true;
     static const int days[] = { 29,31,28,31,30,31,30,31,31,30,31,30,31 };
-    if (month == 2 && isLeap) {
+    if (month == 2 && isLeap)
+    {
         month = 0;
     }
     return days[month];
@@ -36,15 +37,18 @@ enum
 int getDays(int month, int day)
 {
     // 返回-1代表输入的月份不合理
-    if (month < 1 || month > 12) {
+    if (month < 1 || month > 12)
+    {
         return MONTH_ERROR;
     }
     // 返回-2代表输入的天数不合理
-    if (day < 1 || day > 31) {
+    if (day < 1 || day > 31)
+    {
         return DAY_ERROR;
     }
     int totalDays = 0;
-    for (int i = 1; i < month; i++) {
+    for (int i = 1; i < month; i++)
+    {
         // 测试查表法使用数组
         totalDays += getDaysByMonth(i);
     }
@@ -57,7 +61,8 @@ int main()
 {
     // 获取从第一天到这个日期总共有多少天
     int days = getDays(2, 1);
-    switch (days) {
+    switch (days)
+    {
     case -1:
         printf("输入的月份有误!\n");
         break;

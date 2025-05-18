@@ -26,19 +26,24 @@ void JudgeCharacterTypeTest1()
 {
     printf("请输入一个字符:\n");
     char c = getchar();
-    if (c < 32) {
+    if (c < 32)
+    {
         printf("this is a control char\n");
     }
-    else if (c > '0' && c < '9') {
+    else if (c > '0' && c < '9')
+    {
         printf("this is a number\n");
     }
-    else if (c > 'a' && c < 'z') {
+    else if (c > 'a' && c < 'z')
+    {
         printf("this is a lower case\n");
     }
-    else if (c > 'A' && c < 'Z') {
+    else if (c > 'A' && c < 'Z')
+    {
         printf("this is a upper case\n");
     }
-    else {
+    else
+    {
         printf("other char\n");
     }
 }
@@ -50,19 +55,24 @@ void JudgeCharacterTypeTest2()
 {
     printf("请输入一个字符:\n");
     char c = getchar();
-    if (iscntrl(c)) {
+    if (iscntrl(c))
+    {
         printf("this is a control char\n");
     }
-    else if (isdigit(c)) {
+    else if (isdigit(c))
+    {
         printf("this is a number\n");
     }
-    else if (islower(c)) {
+    else if (islower(c))
+    {
         printf("this is a lower case\n");
     }
-    else if (isupper(c)) {
+    else if (isupper(c))
+    {
         printf("this is a upper case\n");
     }
-    else {
+    else
+    {
         printf("other char\n");
     }
 }

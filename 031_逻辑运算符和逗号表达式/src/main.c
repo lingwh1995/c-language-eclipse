@@ -26,7 +26,8 @@ void RelationalOperatorTest()
 	// 短路 与 expression1 && expression2,只有expression1为真时才执行expression2,expression1为假不会执行expression2
 	// 短路 或 同理,同样会短路
 	int x = 100, y = 10;
-	if (x < 20 && ++y) {
+	if (x < 20 && ++y)
+	{
 
 	}
 	printf("y = %d\n", y);
@@ -58,7 +59,8 @@ void CommaExpressionTest1()
 //        printf("死循环......\n");
 //    }
 	// 非死循环效果
-	while (m > 0, n > 0) {
+	while (m > 0, n > 0)
+	{
 		printf("死循环......\n");
 	}
 }

@@ -95,7 +95,8 @@ void MultipleBranchTest3()
     {
         char c = getchar();
         // 检查是否为换行符
-        if (c == '\n') {
+        if (c == '\n')
+        {
             // 退出本次循环
             continue;
         }
@@ -137,11 +138,13 @@ void MultipleBranchTest4()
     {
         char c = getchar();
         // 检查是否为换行符
-        if (c == '\n') {
+        if (c == '\n')
+        {
             // 退出本次循环
             continue;
         }
-        switch (c) {
+        switch (c)
+        {
             case 'A':
             case 'a':
                 printf("score: 80 - 100\n");

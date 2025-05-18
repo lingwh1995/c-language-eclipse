@@ -52,8 +52,10 @@ enum Color
  * 打印颜色
  *   使用枚举约束了case后面的值
  */
-void printColor(enum Color color) {
-    switch (color) {
+void printColor(enum Color color)
+{
+    switch (color)
+    {
         case RED:
             printf("红色\n");
             break;

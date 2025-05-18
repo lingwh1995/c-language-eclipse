@@ -16,7 +16,8 @@ int main()
     int n = 100000;
     //使用register 修饰变量,直接将数据存放在寄存器上,让正常变量变成寄存器变量,这样可以加快计算速度
     register int c = 0;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         c++;
     }
     printf("c = %d\n", c);

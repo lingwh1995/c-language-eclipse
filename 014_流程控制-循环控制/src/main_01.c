@@ -5,15 +5,19 @@
  * 循环打印a-g
  *  不使用取模实现
  */
-void PrintAToG1() {
+void PrintAToG1()
+{
     char str[] = "abcdefg";
     int n = strlen(str);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         int k = i;
-        for (int j = 0; j < n; j++) {
+        for (int j = 0; j < n; j++)
+        {
             printf("%c", str[k]);
             k = k + 1;
-            if (k == n) {
+            if (k == n)
+            {
                 k = 0;
             }
         }
@@ -25,12 +29,15 @@ void PrintAToG1() {
  * 循环打印a-g
  *  使用取模实现
  */
-void PrintAToG2() {
+void PrintAToG2()
+{
     char str[] = "abcdefg";
     int n = strlen(str);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         int k = i;
-        for (int j = 0; j < n; j++) {
+        for (int j = 0; j < n; j++)
+        {
             printf("%c", str[k]);
             k = (k + 1) % n;
         }
@@ -41,8 +48,10 @@ void PrintAToG2() {
 /**
  * 死循环
  */
-void DeadLoopTest1() {
-    for (;;) {
+void DeadLoopTest1()
+{
+    for (;;)
+    {
         printf("死循环\n");
     }
 }
@@ -50,15 +59,18 @@ void DeadLoopTest1() {
 /**
  * 死循环
  */
-void DeadLoopTest2() {
-    while (1) {
+void DeadLoopTest2()
+{
+    while (1)
+    {
         printf("死循环\n");
     }
 }
 
 #if 0
 #endif
-int main() {
+int main()
+{
     PrintAToG1();
     //PrintAToG2();
 	//DeadLoopTest1();

@@ -10,8 +10,7 @@
  */
 void PrintBinaryString(int n)
 {
-	int i;
-	for(i=7; i>=0; i--)
+	for(int i=7; i>=0; i--)
 	{
 		printf("%d", (n>>i) & 1);
 	}

@@ -39,8 +39,7 @@ void DoWhileLoopTest()
  */
 void ForLoopTest()
 {
-    int i;
-    for (i = 0; i < 10; i++)
+    for (int i = 0; i < 10; i++)
     {
         printf("%d\n", i);
     }
@@ -48,7 +47,8 @@ void ForLoopTest()
 }
 
 #if 0
-int main() {
+int main()
+{
 	//WhileLoopTest();
 	//DoWhileLoopTest();
     ForLoopTest();

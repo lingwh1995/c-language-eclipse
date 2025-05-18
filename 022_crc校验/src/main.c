@@ -28,8 +28,7 @@ unsigned char* Hex2ByteArr(unsigned char *puchMsg)
 	int len = strlen(puchMsg);
 	// 分配足够的空间存储字节数组
 	unsigned char* bytes = malloc(len / 2); 
-	int i;
-	for(i=0; i<len; i=i+2)
+	for(int i=0; i<len; i=i+2)
 	{
 		// 把十六进制字符每两位组成一个字符串
 		char hexbuff[3];
@@ -66,10 +65,12 @@ unsigned short CRC_CCITT_XModem(unsigned char *puchMsg, unsigned int usDataLen)
 	unsigned short wCPoly = 0x1021;
 	unsigned char wChar = 0;
 
-	while (usDataLen--) {
+	while (usDataLen--)
+	{
 		wChar = *(puchMsg++);
 		wCRCin ^= (wChar << 8);
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < 8; i++)
+		{
 			if (wCRCin & 0x8000)
 				wCRCin = (wCRCin << 1) ^ wCPoly;
 			else

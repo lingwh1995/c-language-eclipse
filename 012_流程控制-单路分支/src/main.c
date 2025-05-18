@@ -15,7 +15,8 @@ void SingleBranchTest()
     printf("请输入i和j的值,使用空格隔开:\n");
     int i, j, max;
     scanf("%d %d", &i, &j);
-    if (i > j) {
+    if (i > j)
+    {
         max = i;
     }
     else {

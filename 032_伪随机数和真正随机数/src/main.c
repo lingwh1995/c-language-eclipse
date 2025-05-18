@@ -35,9 +35,11 @@ void GetRandomNumber2()
         if (i > r)
         {
             printf("你猜大了,当前输入值:%d\n", i);
-        }else if (i < r) {
+        }else if (i < r)
+        {
             printf("你猜小了,当前输入值:%d\n", i);
-        }else{
+        }else
+        {
             printf("你猜正确了,当前输入值:%d\n", i);
             break;
         }
@@ -61,7 +63,8 @@ void GetRandomNumber3()
         if (i > r)
         {
             printf("你猜大了,当前输入值:%d\n", i);
-        }else if (i < r) {
+        }else if (i < r)
+        {
             printf("你猜小了,当前输入值:%d\n", i);
         }else {
             printf("你猜正确了,当前输入值:%d\n", i);
@@ -79,7 +82,8 @@ void GetRandomNumber4()
     //初始化随机数
     srand((unsigned)time(NULL));
     //打印出10个随机数
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++)
+    {
         printf("%d\n", rand());
     }
 }
