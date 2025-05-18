@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdlib.h>
 #include <math.h>
+#include <time.h>
+#include <limits.h>
 
 /**
  * 题目列表
@@ -22,9 +25,13 @@
  * 015.有一对兔子，从出生后第三个月起每个月都生一对兔子，小兔子长到第三个月后又生一对兔子，假如兔子都不死，问每个月有多少对兔子?（非递归求解）
  * 016.牛顿迭代法求平方根，要求两次求出的平方根的差的绝对值小于0.00001
  * 017.如果一个数等于它的因子之和，则这个数称为完数 6 = 1 + 2 + 3，找出1000以内的所有完数
- * 018.如果一个数等于它的因子之和，则这个数称为完数 6 = 1 + 2 + 3，找出1000以内的所有完数和该完数的因数（方式一）
- * 019.如果一个数等于它的因子之和，则这个数称为完数 6 = 1 + 2 + 3，找出1000以内的所有完数和该完数的因数（方式二）
+ * 018.如果一个数等于它的因子之和，则这个数称为完数 6 = 1 + 2 + 3，找出1000以内的所有完数和该完数的因数（方式一：不使用结构体版）
+ * 019.如果一个数等于它的因子之和，则这个数称为完数 6 = 1 + 2 + 3，找出1000以内的所有完数和该完数的因数（方式二：使用结构体版）
  * 020.打印九九乘法表
+ * 021.找出用户输入的一串数字中的最大数，程序需要提示用户一个一个的输入，当用户输入0或负数时，程序显示已经输入的最大非负数
+ * 022.随机生成1-100之间的数字请人猜，如果是猜对了结束游戏，如果猜错则继续猜并提示所猜的数是大于还是小于所指定的数，最终提示猜对所用次数
+ * 023.多次输入年月日，输出最早的年月日（方式一）
+ * 024.多次输入年月日，输出最早的年月日（方式二）
  */
 
 /**
@@ -323,7 +330,10 @@ void Question_015_RabbitCount_No_Recursion()
  */
 void Question_016_NewtonRaphson_Method_Sqrt()
 {
-	double d = 4.0;
+	double d;
+    printf("请输入一个浮点类型数据：\n");
+    scanf("%lf", &d);
+    printf("d = %lf\n", d);
 	double x0 = d / 2;
 	double x1 = (x0 + d/x0) / 2;
 	while(fabs(x0-x1) > 0.00001)
@@ -331,7 +341,7 @@ void Question_016_NewtonRaphson_Method_Sqrt()
 		x0 = x1;
 		x1 = (x0 + d/x0) / 2;
 	}
-	printf("%f的平方根是 = %f", d, x1);
+	printf("%f的平方根是 = %f\n", d, x1);
 }
 
 /**
@@ -434,6 +444,192 @@ void Question_020_MultiplicationTable()
 	}
 }
 
+/**
+ * 021.找出用户输入的一串数字中的最大数，程序需要提示用户一个一个的输入，当用户输入0或负数时，程序显示已经输入的最大非负数
+ */
+void Question_021_GetMaxInputValue()
+{
+    int input, max=0;
+    while(input>0)
+    {
+        printf("请输入一个数字：\n");
+        scanf("%d", &input);
+        max = input > max ? input : max;
+    }
+    printf("max = %d\n", max);
+
+}
+
+/**
+ * 022.随机生成1-100之间的数字请人猜，如果是猜对了结束游戏，如果猜错则继续猜并提示所猜的数是大于还是小于所指定的数，最终提示猜对所用次数
+ */ 
+void Question_022_GuessNumber()
+{
+    srand((unsigned)time(NULL));
+    int r = rand() % 10;
+    printf("r = %d\n", r);
+    printf("请输入:\n");
+    int i = 0;
+    int times = 0;
+    while (1)
+    {
+        times++;
+        scanf("%d", &i);
+        if (i > r)
+        {
+            printf("你猜大了,当前输入值:%d\n", i);
+        }
+        else if (i < r)
+        {
+            printf("你猜小了,当前输入值:%d\n", i);
+        }
+        else
+        {
+            printf("你猜正确了,当前输入值:%d\n", i);
+            break;
+        }
+    }
+    printf("共猜了%d次才猜正确\n", times);
+}
+
+
+/**
+ * 判断当前年份是否是闰年(闰年全年366天，2月29天，平年全年365天，2月28天)
+ * @param year 当前年份
+ */ 
+bool IsLeapYear(int year)
+{
+    return (year%4 == 0 && year%100 != 0) || (year%400 == 0);
+}
+
+/**
+ * 获取当前月份有多少天
+ * @param year 当前年份
+ * @param month 当前月份
+ */ 
+int GetCurrentMonthDays(int year, int month)
+{
+    int days = 31;
+    switch(month)
+    {
+        case 2:
+            days = IsLeapYear(year) ? 29 : 28;
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            days = 30;
+            break;
+    }
+    return days;
+}
+
+/**
+ * 023.多次输入年月日，输出最早的年月日（方式一：不使用结构体版）
+ */
+void Question_023_GetEarliestInputDate()
+{
+	int year = 1, month = 1, day = 1;
+	int myear = INT_MAX, mmonth = 12, mday = 31;
+	while(true)
+	{
+		bool flag = false;
+		printf("输入年月日，格式yyyy/mm/dd：\n");
+		scanf("%d/%d/%d", &year, &month, &day);
+		// 判断输入的年月日是否合法
+		if(year <=0 || month <=0 || day <=0)
+		{
+			break;
+		}
+		// 判断输入的月是否合法
+		if(month < 1 || month > 12)
+		{
+			break;
+		}
+		// 判断输入的日是否合法
+		if(day < 1 || day > GetCurrentMonthDays(year,month))
+		{
+			break;
+		}
+		if(year < myear)
+		{
+			flag = true;
+		}
+		else if(year == myear || month < mmonth)
+		{
+			flag = true;
+		}
+		else if(year == myear || month == mmonth || day < mday)
+		{
+			flag = true;
+		}
+		if(flag)
+		{
+			myear = year;
+			mmonth = month;
+			mday = day;
+		}
+	}
+	printf("最早的是日期是：%d/%d/%d\n", myear, mmonth, mday);
+}
+
+/**
+ * 024.多次输入年月日，输出最早的年月日（方式二：使用结构体版）
+ */
+void Question_024_GetEarliestInputDate()
+{
+	typedef struct
+	{
+		int year;
+		int month;
+		int day;
+	} Date;
+	Date inputVal = { 1,1,1 };
+	Date min = { INT_MAX,12,31 };
+	while(true)
+	{
+		bool flag = false;
+		printf("输入年月日，格式yyyy/mm/dd：\n");
+		scanf("%d/%d/%d", &inputVal.year, &inputVal.month, &inputVal.day);
+		// 判断输入的年月日是否合法
+		if(inputVal.year <=0 || inputVal.month <=0 || inputVal.day <=0)
+		{
+			break;
+		}
+		// 判断输入的月是否合法
+		if(inputVal.month < 1 || inputVal.month > 12)
+		{
+			break;
+		}
+		// 判断输入的日是否合法
+		if(inputVal.day < 1 || inputVal.day > GetCurrentMonthDays(inputVal.year,inputVal.month))
+		{
+			break;
+		}
+		if(inputVal.year < min.year)
+		{
+			flag = true;
+		}
+		else if(inputVal.year == min.year || inputVal.month < min.month)
+		{
+			flag = true;
+		}
+		else if(inputVal.year == min.year || inputVal.month == min.month || inputVal.day < min.day)
+		{
+			flag = true;
+		}
+		if(flag)
+		{
+			min.year = inputVal.year;
+			min.month = inputVal.month;
+			min.day = inputVal.day;
+		}
+	}
+	printf("最早的是日期是：%d/%d/%d\n", min.year, min.month, min.day);
+}
+
+
 int main()
 {
 	//Question_001_LoopPrintAToG();
@@ -455,6 +651,10 @@ int main()
 	//Question_017_PerfectNumber();
 	//Question_018_PerfectNumberFactor();
 	//Question_019_PerfectNumberFactor();
-	Question_020_MultiplicationTable();
+	//Question_020_MultiplicationTable();
+	//Question_021_GetMaxInputValue();
+    //Question_022_GuessNumber();
+    //Question_023_GetEarliestInputDate();
+    Question_024_GetEarliestInputDate();
 	return 0;
 }

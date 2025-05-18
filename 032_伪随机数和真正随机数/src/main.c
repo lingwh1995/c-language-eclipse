@@ -35,10 +35,12 @@ void GetRandomNumber2()
         if (i > r)
         {
             printf("你猜大了,当前输入值:%d\n", i);
-        }else if (i < r)
+        }
+        else if (i < r)
         {
             printf("你猜小了,当前输入值:%d\n", i);
-        }else
+        }
+        else
         {
             printf("你猜正确了,当前输入值:%d\n", i);
             break;
@@ -63,10 +65,13 @@ void GetRandomNumber3()
         if (i > r)
         {
             printf("你猜大了,当前输入值:%d\n", i);
-        }else if (i < r)
+        }
+        else if (i < r)
         {
             printf("你猜小了,当前输入值:%d\n", i);
-        }else {
+        }
+        else
+        {
             printf("你猜正确了,当前输入值:%d\n", i);
             break;
         }
@@ -151,10 +156,10 @@ void GetRandomNumber7()
 
 int main()
 {
-    GetRandomNumber1();
+	//GetRandomNumber1();
     //GetRandomNumber2();
-    //GetRandomNumber3();
-    //GetRandomNumber4();
+	//GetRandomNumber3();
+    GetRandomNumber4();
     //GetRandomNumber5();
     //GetRandomNumber6();
     //GetRandomNumber7();
