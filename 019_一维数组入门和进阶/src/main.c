@@ -25,6 +25,8 @@ void DefineOneDimensionalArrayTest()
     int arr_3[LEN] = { 1,2,3 };
     // 正确定义:方式三
     int arr_4[3] = { 1,2,3 };
+    // 正确定义:方式四
+    int arr_5[3] = { 5 };
 
     // 定义一个未知大小的整形数组
     int nums_1[] = { 1,2,3,4,5 };
