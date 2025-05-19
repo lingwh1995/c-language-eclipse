@@ -81,9 +81,9 @@ void ForeachString2()
 
 int main()
 {
-	//StringBasic();
+	StringBasic();
 	//StringAndCharArray();
 	//ForeachString1();
-	ForeachString2();
+	//ForeachString2();
 	return 0;
 }

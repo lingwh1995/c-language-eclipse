@@ -56,7 +56,6 @@ int getDays(int month, int day)
 }
 
 #if 0
-#endif
 int main()
 {
     // 获取从第一天到这个日期总共有多少天
@@ -73,5 +72,5 @@ int main()
         printf("总天数: %d\n", days);
         break;
     }
-
 }
+#endif

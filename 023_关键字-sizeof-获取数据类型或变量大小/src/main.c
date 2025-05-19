@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 /**
  * sizeof:返回一个无符号的整型数据
@@ -12,13 +13,35 @@ int main()
     double* dp = NULL;
     char str[10];
     int arr[10];
-    printf("%d\n", sizeof(a));
-    printf("%d\n", sizeof(cp));
-    printf("%d\n", sizeof(dp));
-    printf("%d\n", sizeof(str));
-    printf("%d\n", sizeof(double*));
+    printf("sizeof(a) = %d\n", sizeof(a));
+    printf("sizeof(cp) = %d\n", sizeof(cp));
+    printf("sizeof(dp) = %d\n", sizeof(dp));
+    printf("sizeof(str) = %d\n", sizeof(str));
+    printf("sizeof(double*) = %d\n", sizeof(double*));
     //字符串(字符数组)类型末尾有一个额外的\0,会多占据一个字节
-    printf("%d\n", sizeof("ufe"));
-    printf("%d\n", sizeof(arr));
+    printf("sizeof(\"ufe\") = %d\n", sizeof("ufe"));
+    printf("sizeof(arr) = %d\n", sizeof(arr));
+    printf("----------------------------------------\n");
+
+    int nums[] = { 10,20,30,40,50 };
+    printf("sizeof(nums[0]) = %d\n", sizeof(nums[0]));
+    printf("sizeof(nums) = %d\n", sizeof(nums));
+    printf("----------------------------------------\n");
+
+    char stra[10] = { "tulun" };
+    char strb[10] = { 't','u','l','u','n' };
+    char strc[] = { "tulun" };
+    char strd[] = { 't','u','l','u','n' };
+    printf("sizeof(stra) = %d\n", sizeof(stra));
+    printf("sizeof(strb) = %d\n", sizeof(strb));
+    printf("sizeof(strc) = %d\n", sizeof(strc));
+    printf("sizeof(strd) = %d\n", sizeof(strd));
+
+    printf("strlen(stra) = %d\n", strlen(stra));
+    printf("strlen(strb) = %d\n", strlen(strb));
+    printf("strlen(strc) = %d\n", strlen(strc));
+    // 为什么打印的长度值是10，因为是 strc长度 + strd长度，因为 strd 没有 '\0'，这里最后是使用了 strc 中的 '\0' 作为结束符
+    printf("strlen(strd) = %d\n", strlen(strd));
+    printf("----------------------------------------\n");
 	return 0;
 }

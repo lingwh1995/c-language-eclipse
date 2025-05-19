@@ -142,7 +142,7 @@ void ViewMemoryPhysicalAddressOfOneDimensionalArrayTest()
     char str[] = { "hello" };
     for (int i = 0; i < strlen(str); i++)
     {
-        printf("%p\n", &str[i]);
+        printf("%p => %c\n", &str[i], str[i]);
     }
     printf("-----------------------------\n");
 
@@ -151,11 +151,12 @@ void ViewMemoryPhysicalAddressOfOneDimensionalArrayTest()
     int length = sizeof(nums) / sizeof(nums[0]);
     for (int i = 0; i < length; i++)
     {
-        printf("%p\n", &nums[i]);
+        printf("%p => %d\n", &nums[i], nums[i]);
     }
 }
 
 #if 0
+#endif
 int main()
 {
 	//DefineOneDimensionalArrayTest();
@@ -164,4 +165,3 @@ int main()
     ViewMemoryPhysicalAddressOfOneDimensionalArrayTest();
     return 0;
 }
-#endif
