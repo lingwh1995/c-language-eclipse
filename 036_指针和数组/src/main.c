@@ -154,7 +154,7 @@ int main()
     //PointerAndArrayTest2();
 	//PointerAndArrayTest3();
 	//PointerAndArrayTest4();
-    PointerAndArrayTest5();
-	//PointerAndArrayTest6();
+	//PointerAndArrayTest5();
+	PointerAndArrayTest6();
     return 0;
 }
