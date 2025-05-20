@@ -2,9 +2,10 @@
 #include <string.h>
 #include <stdlib.h>
 
-unsigned short CRC_CCITT_XModem(unsigned char *puchMsg, unsigned int usDataLen);
 unsigned char* Hex2ByteArr(unsigned char *puchMsg);
 void PrintDecAndHex(int crcDec);
+unsigned short CRC_CCITT_XModem(unsigned char *puchMsg, unsigned int usDataLen);
+
 
 int main()
 {
@@ -17,7 +18,6 @@ int main()
 	PrintDecAndHex(crcDec);
 	return 0;
 }
-
 
 /**
  * 十六进制字符串转字节数组
@@ -52,7 +52,6 @@ void PrintDecAndHex(int crcDec)
     sprintf(crcHex, "%x", crcDec);
     printf("crc十六进制 = %s\n", crcHex);
 }
-
 
 /**
  * CRC_CCITT_XModem

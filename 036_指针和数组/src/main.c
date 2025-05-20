@@ -7,9 +7,9 @@ void PointerAndArrayTest1()
 {
     int arr[5] = { 1,2,3,4,5 };
     //数组的地址
-    printf("数组的地址 = %p\n", &arr);
+    printf("数组的地址（获取数组地址方式一） = %p\n", arr);
+    printf("数组的地址（获取数组地址方式二） = %p\n", &arr);
     //数组的首元素地址
-    printf("数组的首元素地址 = %p\n", &arr[0]);
     int* p = &arr[0];
     printf("数组的首元素地址 = %p\n", p);
     printf("数组的首元素 = %d\n", *p);
@@ -47,7 +47,8 @@ void PointerAndArrayTest3()
     {
         printf("arr_1[%d] = %d, ip = %p\n", i, *ip, ip);
         //相当于地址的值+4(个字节)
-        ip = ip + 1;
+        //ip = ip + 1;
+        ip++;
     }
     printf("------------------------\n");
 
@@ -59,7 +60,8 @@ void PointerAndArrayTest3()
     {
         printf("arr_2[%d] = %f, dp = %p\n", i, *dp, dp);
         //相当于地址的值+8(个字节)
-        dp = dp + 1;
+        //dp = dp + 1;
+        dp++;
     }
     printf("------------------------\n");
 
@@ -71,16 +73,19 @@ void PointerAndArrayTest3()
     {
         printf("arr_3[%d] = %c, cp = %p\n", i, *cp, cp);
         //相当于地址的值+1(个字节)
-        cp = cp + 1;
+        //cp = cp + 1;
+        cp++;
     }
 }
 
 
 /**
+ * 通过数组下标访问数组元素的本质是通过指针访问数组元素
+ *
  * 测试arr[i]和i[arr]的执行效果是相同的
  * arr[i]之所以能正确的指向某一个元素,本质上是编译器把 arr[i]翻译成了 *(arr+i)
  * arr[i]和i[arr]都可以正确的打印出数组中的元素的原因?
- *  因为在编译器看来,arr[i]等同于 *(arr+i), i[arr] 等同于 *(i+arr),所以说通过下标(arr[i])访问数组的方式实际上是通过指针访问数组
+ *  因为在编译器看来,arr[i]等同于 *(arr+i), i[arr] 等同于 *(i+arr)，所以说通过下标(arr[i])访问数组的方式实际上是通过指针访问数组
  */
 void PointerAndArrayTest4()
 {
@@ -147,9 +152,9 @@ int main()
 {
 	//PointerAndArrayTest1();
     //PointerAndArrayTest2();
-    //PointerAndArrayTest3();
-    //PointerAndArrayTest4();
-    //PointerAndArrayTest5();
-    PointerAndArrayTest6();
+	//PointerAndArrayTest3();
+	//PointerAndArrayTest4();
+    PointerAndArrayTest5();
+	//PointerAndArrayTest6();
     return 0;
 }
