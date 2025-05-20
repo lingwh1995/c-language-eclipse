@@ -156,7 +156,6 @@ void ViewMemoryPhysicalAddressOfOneDimensionalArrayTest()
 }
 
 #if 0
-#endif
 int main()
 {
 	//DefineOneDimensionalArrayTest();
@@ -165,3 +164,4 @@ int main()
     ViewMemoryPhysicalAddressOfOneDimensionalArrayTest();
     return 0;
 }
+#endif
