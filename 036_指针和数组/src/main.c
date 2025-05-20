@@ -127,6 +127,7 @@ void PointerAndArrayTest6()
         printf("%d\n", arr[i]);
     }
     printf("---------------------\n");
+    // 重点掌握，此用法非常巧妙，p[i] 等同于 *(p+i) 等同于 i[p] 等同于 *(i+p)
     for (int i = 0; i < length; i++)
     {
         printf("%d\n", p[i]);
