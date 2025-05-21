@@ -7,8 +7,8 @@ void PointerAndArrayTest1()
 {
     int arr[5] = { 1,2,3,4,5 };
     //数组的地址
-    printf("数组的地址（获取数组地址方式一） = %p\n", arr);
-    printf("数组的地址（获取数组地址方式二） = %p\n", &arr);
+    printf("获取数组（首元素）的地址（方式一：数组名arr即为数组（首元素）的地址） = %p\n", arr);
+    printf("获取数组（首元素）的地址（方式二：直接获取数组（首元素）的地址） = %p\n", &arr[0]);
     //数组的首元素地址
     int* p = &arr[0];
     printf("数组的首元素地址 = %p\n", p);
@@ -121,7 +121,7 @@ void PointerAndArrayTest6()
 {
     int arr[] = { 1,2,3,4,5 };
     int length = sizeof(arr) / sizeof(arr[0]);
-    int* p = &arr;
+    int* p = arr;
     for (int i = 0; i < length; i++)
     {
         printf("%d\n", arr[i]);
@@ -151,11 +151,11 @@ void PointerAndArrayTest6()
 
 int main()
 {
-	//PointerAndArrayTest1();
+	PointerAndArrayTest1();
     //PointerAndArrayTest2();
 	//PointerAndArrayTest3();
 	//PointerAndArrayTest4();
 	//PointerAndArrayTest5();
-	PointerAndArrayTest6();
+	//PointerAndArrayTest6();
     return 0;
 }

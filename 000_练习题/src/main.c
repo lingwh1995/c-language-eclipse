@@ -101,6 +101,9 @@ void Question_003_GreatestCommonDivisor()
 /**
  * 004.求最大公约数 方式二：辗转相除法
  * 		公式：gcd(a,b) = gcd(b, a mod b);
+ * 		     gcd(48,18) = gcd(18, 12);
+ * 	    	 gcd(18,12) = gcd(12, 6);
+ * 	         gcd(12,6)  = gcd(6, 0);
  */
 void Question_004_GreatestCommonDivisor()
 {
