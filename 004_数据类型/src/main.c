@@ -144,7 +144,7 @@ int main()
     int nums[] = { 10, 20, 30 };
     int i;
 	int size = sizeof(nums)/sizeof(nums[0]);
-    for(i=0; i<size; i++)
+    for(i = 0; i < size; i++)
     {
     	printf("%d ",nums[i]);
     }
@@ -161,7 +161,7 @@ int main()
     		{ 3,"Charile",29 }
     };
     size = sizeof(studentArr)/sizeof(studentArr[0]);
-    for(i=0; i<size; i++)
+    for(i = 0; i < size; i++)
     {
     	printf("学生编号：%d,学生姓名：%s,学生年龄：%d\n", studentArr[i].id, studentArr[i].name, studentArr[i].age);
     }

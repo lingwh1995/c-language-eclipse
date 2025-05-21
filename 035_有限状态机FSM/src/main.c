@@ -33,7 +33,7 @@ int main()
     // 用来记录单词的数量
     int word_count = 0;
     int state = BEGIN;
-    for(int i=0; str[i] != '\0'; i++)
+    for(int i = 0; str[i] != '\0'; i++)
     {
         char c = str[i];
         switch(state)

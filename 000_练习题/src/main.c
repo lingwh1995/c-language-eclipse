@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
@@ -32,6 +33,8 @@
  * 022.随机生成1-100之间的数字请人猜，如果是猜对了结束游戏，如果猜错则继续猜并提示所猜的数是大于还是小于所指定的数，最终提示猜对所用次数
  * 023.多次输入年月日，输出最早的年月日（方式一）
  * 024.多次输入年月日，输出最早的年月日（方式二）
+ * 025.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素可以重复，并且使用冒泡排序对数组元素进行排序（基础版）
+ * 026.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素可以重复，并且使用冒泡排序对数组元素进行排序（优化版）
  */
 
 /**
@@ -41,10 +44,10 @@ void Question_001_LoopPrintAToG()
 {
 	char str[] = "abcdefg";
 	int len = strlen(str);
-	for(int i=0; i<len; i++)
+	for(int i = 0; i < len; i++)
 	{
 		int k = i;
-		for(int j=0; j<len; j++)
+		for(int j = 0; j < len; j++)
 		{
 			printf("%c", str[k]);
 			k = k + 1;
@@ -64,10 +67,10 @@ void Question_002_LoopPrintAToG()
 {
 	char str[] = "abcdefg";
 	int len = strlen(str);
-	for(int i=0; i<len; i++)
+	for(int i = 0; i < len; i++)
 	{
 		int k = i;
-		for(int j=0; j<len; j++)
+		for(int j = 0; j < len; j++)
 		{
 			printf("%c", str[k]);
 			k = k + 1;
@@ -89,7 +92,7 @@ void Question_003_GreatestCommonDivisor()
 	int c = a<b ? a : b;
 	while(c>1)
 	{
-		if(a%c==0 && b%c==0)
+		if(a % c == 0 && b % c==0)
 		{
 			break;
 		}
@@ -251,7 +254,7 @@ void Question_012_CountWord()
 	char str[] = " one  two   three    four     five ";
     int j;
     int c = str[0] == ' ' ? 0 : 1;
-    for(int i=0; str[i] != '\0'; i++)
+    for(int i = 0; str[i] != '\0'; i++)
     {
         if(str[i] != ' ')
         {
@@ -632,6 +635,83 @@ void Question_024_GetEarliestInputDate()
 	printf("最早的是日期是：%d/%d/%d\n", min.year, min.month, min.day);
 }
 
+void SwapNumber(int* a, int* b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+/**
+ * 025.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素可以重复，并且使用冒泡排序对数组元素进行排序（基础版）
+ */
+void Question_025_BubbleSort()
+{
+    int nums[5] = { 0 };
+    int length = sizeof(nums) / sizeof(nums[0]);
+    srand((unsigned)time(NULL));
+    for (int i = 0; i < length; i++)
+    {
+        nums[i] = rand() % 100 + 1;
+    }
+    for (int i = 0; i < length - 1; i++)
+    {
+        for (int j = 0; j < length - i - 1; j++)
+        {
+            if (nums[j] > nums[j + 1])
+            {
+                SwapNumber(&nums[j], &nums[j + 1]);
+            }
+        }
+    }
+    for (int i = 0; i < length; i++)
+    {
+        printf("%3d ", nums[i]);
+        if ((i + 1) % 10 == 0)
+        {
+            printf("\n");
+        }
+    }
+}
+
+/**
+ * 026.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素可以重复，并且使用冒泡排序对数组元素进行排序（优化版）
+ */
+void Question_026_BubbleSort()
+{
+    int nums[5] = { 0 };
+    int length = sizeof(nums) / sizeof(nums[0]);
+    srand((unsigned)time(NULL));
+    for (int i = 0; i < length; i++)
+    {
+        nums[i] = rand() % 100 + 1;
+    }
+    for (int i = 0; i < length - 1; i++)
+    {
+    	// 本轮循环是否没有进行元素交换，如果没有进行元素交换，说明当前数组是有序数组
+    	bool isNotExchange = true;
+        for (int j = 0; j < length - i - 1; j++)
+        {
+            if (nums[j] > nums[j + 1])
+            {
+            	isNotExchange = false;
+                SwapNumber(&nums[j], &nums[j + 1]);
+            }
+        }
+        if (isNotExchange)
+        {
+            break;
+        }
+    }
+    for (int i = 0; i < length; i++)
+    {
+        printf("%3d ", nums[i]);
+        if ((i + 1) % 10 == 0)
+        {
+            printf("\n");
+        }
+    }
+}
 
 int main()
 {
@@ -658,6 +738,8 @@ int main()
 	//Question_021_GetMaxInputValue();
     //Question_022_GuessNumber();
     //Question_023_GetEarliestInputDate();
-    Question_024_GetEarliestInputDate();
+	//Question_024_GetEarliestInputDate();
+	//Question_025_BubbleSort();
+	Question_026_BubbleSort();
 	return 0;
 }

@@ -67,7 +67,7 @@ int binTodec(char *binaryStr)
     strcpy(binaryArr, binaryStr);
 
     int dec = 0;
-	for(int i=0; i<len; i++)
+	for(int i = 0; i < len; i++)
 	{
 		int r = (binaryArr[i] - '0') * (int)pow(2,len-i-1);
 		dec += r;

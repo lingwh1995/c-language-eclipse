@@ -476,7 +476,7 @@ void StructArray()
 	// 定义一个结构体数组
 	struct Student students[] = { student1, student2, student3 };
 	int len = sizeof(students) / sizeof(students[0]);
-	for(int i=0; i<len; i++)
+	for(int i = 0; i < len; i++)
 	{
 		printf("学号 = %d, 姓名 = %s, 年龄 = %d\n", students[i].id, students[i].name, students[i].age);
 	}
