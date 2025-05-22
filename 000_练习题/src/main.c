@@ -33,8 +33,9 @@
  * 022.随机生成1-100之间的数字请人猜，如果是猜对了结束游戏，如果猜错则继续猜并提示所猜的数是大于还是小于所指定的数，最终提示猜对所用次数
  * 023.多次输入年月日，输出最早的年月日（方式一）
  * 024.多次输入年月日，输出最早的年月日（方式二）
- * 025.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素可以重复，并且使用冒泡排序对数组元素进行排序（基础版）
- * 026.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素可以重复，并且使用冒泡排序对数组元素进行排序（优化版）
+ * 025.冒泡排序算法模型
+ * 026.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素可以重复，并且使用冒泡排序对数组元素进行排序（基础版）
+ * 027.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素可以重复，并且使用冒泡排序对数组元素进行排序（优化版）
  */
 
 /**
@@ -643,9 +644,38 @@ void SwapNumber(int* a, int* b)
 }
 
 /**
- * 025.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素可以重复，并且使用冒泡排序对数组元素进行排序（基础版）
+ * 025.冒泡排序算法模型
+ *      外层循环控制比较轮数            比较轮数(从0开始) = 数组的长度 - 1 
+ *      内层循环控制每一轮比较次数       每一轮比较次数 = 数组长度 - 当前比较轮数(从0开始) -1
  */
 void Question_025_BubbleSort()
+{
+	int nums[] = { 3,9,7,1,5 };
+	int length = sizeof(nums) / sizeof(nums[0]);
+	// 获取比较轮数
+	int round = length - 1;
+	for(int r = 0; r < round; r++)
+	{
+        // 获取每一轮比较次数
+        int compareTimes = length - r - 1;
+        for(int c = 0; c < compareTimes; c++)
+        {
+            if(nums[c] > nums[c+1])
+            {
+                SwapNumber(&nums[c],&nums[c+1]);
+            }
+        }
+	}
+    for(int i = 0; i < length; i++)
+    {
+        printf("%2d ", nums[i]);
+    }
+}
+
+/**
+ * 026.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素可以重复，并且使用冒泡排序对数组元素进行排序（基础版）
+ */
+void Question_026_BubbleSort()
 {
     int nums[5] = { 0 };
     int length = sizeof(nums) / sizeof(nums[0]);
@@ -675,9 +705,9 @@ void Question_025_BubbleSort()
 }
 
 /**
- * 026.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素可以重复，并且使用冒泡排序对数组元素进行排序（优化版）
+ * 027.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素可以重复，并且使用冒泡排序对数组元素进行排序（优化版）
  */
-void Question_026_BubbleSort()
+void Question_027_BubbleSort()
 {
     int nums[5] = { 0 };
     int length = sizeof(nums) / sizeof(nums[0]);
@@ -739,7 +769,8 @@ int main()
     //Question_022_GuessNumber();
     //Question_023_GetEarliestInputDate();
 	//Question_024_GetEarliestInputDate();
-	//Question_025_BubbleSort();
-	Question_026_BubbleSort();
+	Question_025_BubbleSort();
+	//Question_026_BubbleSort();
+	//Question_027_BubbleSort();
 	return 0;
 }
