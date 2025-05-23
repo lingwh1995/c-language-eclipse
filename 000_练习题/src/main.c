@@ -36,6 +36,10 @@
  * 025.冒泡排序算法模型
  * 026.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素可以重复，并且使用冒泡排序对数组元素进行排序（基础版）
  * 027.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素可以重复，并且使用冒泡排序对数组元素进行排序（优化版）
+ * 028.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素不可以重复，并且使用冒泡排序对数组元素进行排序（for循环版）
+ * 029.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素不可以重复，并且使用冒泡排序对数组元素进行排序（while循环版）
+ * 030.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素不可以重复，并且使用冒泡排序对数组元素进行排序（查表版 方式一）
+ * 031.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素不可以重复，并且使用冒泡排序对数组元素进行排序（查表版 方式二）
  */
 
 /**
@@ -636,6 +640,10 @@ void Question_024_GetEarliestInputDate()
 	printf("最早的是日期是：%d/%d/%d\n", min.year, min.month, min.day);
 }
 
+/**
+ * @param a a元素的地址
+ * @param b b元素的地址
+ */
 void SwapNumber(int* a, int* b)
 {
 	int temp = *a;
@@ -677,13 +685,15 @@ void Question_025_BubbleSort()
  */
 void Question_026_BubbleSort()
 {
-    int nums[5] = { 0 };
+    int nums[100] = { 0 };
     int length = sizeof(nums) / sizeof(nums[0]);
     srand((unsigned)time(NULL));
+    // 生成100个可重复随机数
     for (int i = 0; i < length; i++)
     {
-        nums[i] = rand() % 100 + 1;
+        nums[i] = rand() % length + 1;
     }
+    // 冒泡排序
     for (int i = 0; i < length - 1; i++)
     {
         for (int j = 0; j < length - i - 1; j++)
@@ -694,6 +704,7 @@ void Question_026_BubbleSort()
             }
         }
     }
+    // 打印数组
     for (int i = 0; i < length; i++)
     {
         printf("%3d ", nums[i]);
@@ -709,13 +720,15 @@ void Question_026_BubbleSort()
  */
 void Question_027_BubbleSort()
 {
-    int nums[5] = { 0 };
+    int nums[100] = { 0 };
     int length = sizeof(nums) / sizeof(nums[0]);
+    // 生成100个可重复随机数
     srand((unsigned)time(NULL));
     for (int i = 0; i < length; i++)
     {
-        nums[i] = rand() % 100 + 1;
+        nums[i] = rand() % length + 1;
     }
+    // 冒泡排序
     for (int i = 0; i < length - 1; i++)
     {
     	// 本轮循环是否没有进行元素交换，如果没有进行元素交换，说明当前数组是有序数组
@@ -733,6 +746,7 @@ void Question_027_BubbleSort()
             break;
         }
     }
+    // 打印数组
     for (int i = 0; i < length; i++)
     {
         printf("%3d ", nums[i]);
@@ -743,8 +757,209 @@ void Question_027_BubbleSort()
     }
 }
 
+/**
+ * @param nums 数组nums的地址
+ * @param k 查找重复元素结束索引
+ * @param value 需要判断是否重复的元素
+ */
+int FindValue(int* nums, int k, int value)
+{
+	int position = -1;
+	for(int i = 0; i < k; i++)
+	{
+		if(nums[i] == value)
+		{
+			position = i;
+		}
+	}
+	return position;
+}
+
+/**
+ * 028.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素不可以重复，并且使用冒泡排序对数组元素进行排序（for循环版）
+ */
+void Question_028_BubbleSort()
+{
+	int nums[100] = { 0 };
+	int length = sizeof(nums) / sizeof(nums[0]);
+	// 生成100个不重复随机数
+	srand((unsigned)time(NULL));
+	for(int i = 0; i < length; i++)
+	{
+		int r = rand() % length + 1;
+		if(FindValue(nums,i,r) == -1)
+		{
+			nums[i] = r;
+		}
+		else
+		{
+			// 如果FindValue()返回值不为-1,则说明数组中已经有一个元素的值和r相等,则让i--,这是很巧妙的处理方法
+			i--;
+		}
+	}
+	// 冒泡排序
+	for(int i = 0; i < length - 1; i++)
+	{
+		for(int j = 0; j < length - i - 1; j++)
+		{
+			if(nums[j] > nums[j+1])
+			{
+				SwapNumber(&nums[j], &nums[j+1]);
+			}
+		}
+	}
+	// 打印数组
+	for (int i = 0; i < length; i++)
+    {
+        printf("%3d ", nums[i]);
+        if ((i + 1) % 10 == 0)
+        {
+            printf("\n");
+        }
+    }
+}
+
+/**
+ * 029.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素不可以重复，并且使用冒泡排序对数组元素进行排序（while循环版）
+ */
+void Question_029_BubbleSort()
+{
+	int nums[100] = { 0 };
+	int length = sizeof(nums) / sizeof(nums[0]);
+	// 生成100个不重复随机数
+	srand((unsigned)time(NULL));
+	int i = 0;
+	while(i < length)
+	{
+		int r = rand() % length + 1;
+		if(FindValue(nums,i,r) == -1)
+		{
+			nums[i] = r;
+			i++;
+		}
+	}
+
+	// 冒泡排序
+	for(i = 0; i < length - 1; i++)
+	{
+		for(int j = 0; j < length - i - 1; j++)
+		{
+			if(nums[j] > nums[j+1])
+			{
+				SwapNumber(&nums[j], &nums[j+1]);
+			}
+		}
+	}
+	// 打印数组
+	for (i = 0; i < length; i++)
+    {
+        printf("%3d ", nums[i]);
+        if ((i + 1) % 10 == 0)
+        {
+            printf("\n");
+        }
+    }
+}
+
+/**
+ * 030.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素不可以重复，并且使用冒泡排序对数组元素进行排序（查表版 方式一）
+ */
+void Question_030_BubbleSort()
+{
+	int nums[100] = { 0 };
+	int length = sizeof(nums) / sizeof(nums[0]);
+	// 创建表
+	int table[101] = { 0 };
+
+	// 生成100个不重复随机数
+	srand((unsigned)time(NULL));
+	int i = 0;
+	while(i < length)
+	{
+		int r = rand() % length + 1;
+		if(table[r] == 0)
+		{
+			nums[i] = r;
+			i++;
+			table[r] = 1;
+		}
+	}
+
+	// 冒泡排序
+	for(i = 0; i < length - 1; i++)
+	{
+		for(int j = 0; j < length - i - 1; j++)
+		{
+			if(nums[j] > nums[j+1])
+			{
+				SwapNumber(&nums[j], &nums[j+1]);
+			}
+		}
+	}
+	// 打印数组
+	for (i = 0; i < length; i++)
+    {
+        printf("%3d ", nums[i]);
+        if ((i + 1) % 10 == 0)
+        {
+            printf("\n");
+        }
+    }
+}
+
+/**
+ * 031.定义大小为100的整形数组，使用随机函数给数组元素赋值，数值范围1-100，数组中元素不可以重复，并且使用冒泡排序对数组元素进行排序（查表版 方式二）
+ */
+void Question_031_BubbleSort()
+{
+	int nums[100] = { 0 };
+	int length = sizeof(nums) / sizeof(nums[0]);
+	// 创建表
+	int table[101] = { 0 };
+
+	// 生成100个不重复随机数
+	srand((unsigned)time(NULL));
+	int i = 0;
+	while(i < length)
+	{
+		int r = rand() % length + 1;
+		if(table[r] == 0)
+		{
+			i++;
+			table[r] = r;
+		}
+	}
+
+	// 不需要排序，因为按照上面的操作流程，table数组中存放的数据天然是有序的
+
+	// 复制数组
+	for(i = 0; i < length; i++)
+	{
+		nums[i] = table[i+1];
+	}
+
+	// 打印数组
+	for (int i = 0; i < length; i++)
+    {
+        printf("%3d ", nums[i]);
+        if ((i + 1) % 10 == 0)
+        {
+            printf("\n");
+        }
+    }
+}
+
+
 int main()
 {
+	// 测试执行效率，使用以下方法
+	/*
+	  long start, end;
+	  start = time(NULL);
+	  end = time(NULL);
+	  printf("花费时间 = %ld s\n", (end - start));
+	 */
+
 	//Question_001_LoopPrintAToG();
 	//Question_002_LoopPrintAToG();
 	//Question_003_GreatestCommonDivisor();
@@ -769,8 +984,12 @@ int main()
     //Question_022_GuessNumber();
     //Question_023_GetEarliestInputDate();
 	//Question_024_GetEarliestInputDate();
-	Question_025_BubbleSort();
+	//Question_025_BubbleSort();
 	//Question_026_BubbleSort();
 	//Question_027_BubbleSort();
+	//Question_028_BubbleSort();
+	Question_029_BubbleSort();
+	//Question_030_BubbleSort();
+	//Question_031_BubbleSort();
 	return 0;
 }
