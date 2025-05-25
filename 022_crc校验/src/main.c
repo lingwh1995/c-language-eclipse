@@ -2,14 +2,14 @@
 #include <string.h>
 #include <stdlib.h>
 
-unsigned char* Hex2ByteArr(unsigned char *puchMsg);
+unsigned char* Hex2ByteArr(char *puchMsg);
 void PrintDecAndHex(int crcDec);
 unsigned short CRC_CCITT_XModem(unsigned char *puchMsg, unsigned int usDataLen);
 
 
 int main()
 {
-    unsigned char *hex = "000199999999999999999101250428110500ffb9001c1f383636383737303739373532343238383938363038353831303234343031343434323000000042433935434e560101000126799175";
+    char *hex = "000199999999999999999101250428110500ffb9001c1f383636383737303739373532343238383938363038353831303234343031343434323000000042433935434e560101000126799175";
     unsigned char *byteArr = Hex2ByteArr(hex);
     int len = strlen(hex) / 2;
 
@@ -23,11 +23,11 @@ int main()
  * 十六进制字符串转字节数组
  * @param puchMsg	要进行crc计算的字符串
  */ 
-unsigned char* Hex2ByteArr(unsigned char *puchMsg)
+unsigned char* Hex2ByteArr(char *puchMsg)
 {
 	int len = strlen(puchMsg);
 	// 分配足够的空间存储字节数组
-	unsigned char* bytes = malloc(len / 2); 
+	unsigned char* bytes = malloc(len / 2);
 	for(int i = 0; i < len; i = i + 2)
 	{
 		// 把十六进制字符每两位组成一个字符串

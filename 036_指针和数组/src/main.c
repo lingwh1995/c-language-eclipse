@@ -121,41 +121,37 @@ void PointerAndArrayTest6()
 {
     int arr[] = { 1,2,3,4,5 };
     int length = sizeof(arr) / sizeof(arr[0]);
-    int* p = arr;
     for (int i = 0; i < length; i++)
     {
         printf("%d\n", arr[i]);
     }
-    printf("---------------------\n");
-    // 重点掌握，此用法非常巧妙，p[i] 等同于 *(p+i) 等同于 i[p] 等同于 *(i+p)
+    printf("----------1-----------\n");
+
+    // 重点掌握，此用法非常巧妙，arr[i] 等同于 *(arr+i) 等同于 i[arr] 等同于 *(i+arr)
     for (int i = 0; i < length; i++)
     {
-        printf("%d\n", p[i]);
+        printf("%d\n", arr[i]);
     }
-    printf("---------------------\n");
+    printf("----------2-----------\n");
     for (int i = 0; i < length; i++)
     {
-        printf("%p\n", p + i);
+        printf("%p\n", arr + i);
     }
-    printf("---------------------\n");
-    for (int i = 0; i < length; i++)
-    {
-        printf("%d\n", *(p + i));
-    }
-    printf("---------------------\n");
+    printf("----------3-----------\n");
     for (int i = 0; i < length; i++)
     {
         printf("%d\n", *(arr + i));
     }
+    printf("----------4-----------\n");
 }
 
 int main()
 {
-	PointerAndArrayTest1();
+	//PointerAndArrayTest1();
     //PointerAndArrayTest2();
 	//PointerAndArrayTest3();
 	//PointerAndArrayTest4();
 	//PointerAndArrayTest5();
-	//PointerAndArrayTest6();
+	PointerAndArrayTest6();
     return 0;
 }

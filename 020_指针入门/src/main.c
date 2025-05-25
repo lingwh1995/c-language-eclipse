@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * 指针: 地址就是指针
+ * 指针: 指针存放的是元素的地址或者元素（数组元素）的首地址
  *  1.32系统下指针大小为4字节，64位系统下指针大小为8字节
- *  2.指向int类型数据的指针就是int类型指针,指向char类型数据的指针就是char类型指针
+ *  2.指向int类型数据的指针就是int类型指针，指向char类型数据的指针就是char类型指针
  */
 
 int main()
@@ -15,8 +15,8 @@ int main()
     printf("---------------------------------------------\n");
 
     // 通过打印结果可以看出: 1.数组在内存中是连续存储的 2.一个int类型数据在内存中占据四个字节
-    int len = sizeof(nums) / sizeof(nums[0]);
-    for(int i = 0; i < len; i++)
+    int length = sizeof(nums) / sizeof(nums[0]);
+    for(int i = 0; i < length; i++)
     {
     	printf("nums[%d] = %d, &nums[%d] = %p\n", i, nums[i], i, &nums[i]);
     }

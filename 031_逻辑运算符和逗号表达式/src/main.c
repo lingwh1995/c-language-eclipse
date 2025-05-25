@@ -102,9 +102,9 @@ void CommaExpressionTest3()
 
 int main()
 {
-	//RelationalOperatorTest();
+	RelationalOperatorTest();
 	//CommaExpressionTest1();
 	//CommaExpressionTest2();
-	CommaExpressionTest3();
+	//CommaExpressionTest3();
 	return 0;
 }

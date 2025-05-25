@@ -16,6 +16,10 @@ void IncrementOperator()
     // ++i
     i = 10;
     printf("i: %d\n", ++i);
+
+    i = 10;
+    int j = ++i; // 等同于  i = 1 + i; j = i;
+    printf("j: %d\n", j);
 }
 
 /**
@@ -35,9 +39,9 @@ void TernaryConditionalOperator()
 void AddEqualOperator()
 {
 	int nums[] = { 1,2,3,4,5 };
-	int len = sizeof(nums) / sizeof(nums[0]);
+	int length = sizeof(nums) / sizeof(nums[0]);
 	int sum = 0 ;
-	for (int i = 0; i < len; i++)
+	for (int i = 0; i < length; i++)
 	{
 		sum += nums[i];
 	}
@@ -50,9 +54,9 @@ void AddEqualOperator()
 void MultiplyEqualOperator()
 {
 	int nums[] = { 1,2,3,4,5 };
-	int len = sizeof(nums) / sizeof(nums[0]);
+	int length = sizeof(nums) / sizeof(nums[0]);
 	int sum = 1;
-	for (int i = 0; i < len; i++)
+	for (int i = 0; i < length; i++)
 	{
 		sum *= nums[i];
 	}
@@ -87,9 +91,9 @@ void ModOperator()
 
 int main()
 {
-	//IncrementOperator();
+	IncrementOperator();
 	//TernaryConditionalOperator();
-	AddEqualOperator();
+	//AddEqualOperator();
 	//MultiplyEqualOperator();
 	//ModOperator();
 }

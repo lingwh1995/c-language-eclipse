@@ -644,11 +644,15 @@ void Question_024_GetEarliestInputDate()
  * @param a a元素的地址
  * @param b b元素的地址
  */
-void SwapNumber(int* a, int* b)
+void SwapNumber(int* ap, int* bp)
 {
-	int temp = *a;
-	*a = *b;
-	*b = temp;
+	if(ap == NULL || bp == NULL)
+	{
+		return;
+	}
+	int temp = *ap;
+	*ap = *bp;
+	*bp = temp;
 }
 
 /**
