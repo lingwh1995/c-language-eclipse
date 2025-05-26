@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /*
- * const与指针
+ * const与指针的关系
  */
 
 /**

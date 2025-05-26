@@ -92,4 +92,11 @@ int main()
     int j = 0x12345678;
     int* pj = &j;
     printf("j的物理地址 = %p\n", pj);
+
+    // 指针是一个常量
+    int m =10, n = 20;
+    int* mp = &m;
+    int* np = &n;
+    // 指针是一个常量，所以放开会报错
+    //&m = &n;
 }

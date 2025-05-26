@@ -50,6 +50,14 @@ void BigEndOrLittleEnd_2()
 
 }
 
+void TestBigEndAndLittleEnd()
+{
+	int a = 10, b = 20, c = 30, d = 40;
+	printf("&a = %p\n", &a);
+	printf("&b = %p\n", &b);
+	printf("&c = %p\n", &c);
+	printf("&d = %p\n", &d);
+}
 
 int main()
 {
@@ -83,6 +91,7 @@ int main()
 	 * 	0x01  |  0x00  |  0x00  |  0x00
 	 */
 	//BigEndOrLittleEnd_1();
-	BigEndOrLittleEnd_2();
+	//BigEndOrLittleEnd_2();
+	TestBigEndAndLittleEnd();
 	return 0;
 }

@@ -17,12 +17,21 @@ void PointerSeniorTest1() {
 	 * int (*p)[n];
 	 */
 
-    int a = 10;
+    int a = 10, b =20;
     int* p = &a;
     *p = 100;
     printf("a = %d, %p => *p %d\n", a, p, *p);
-    //a 就等价于 *&a, *意思是对此地址解引用
-    // a = *&a
+
+    //*&a = a; 	*&a和a代表同样的值，同样的含义
+    	// a 就等价于 *&a, *意思是对此地址解引用
+    printf("*&a = %d, a = %d\n", *&a, a);
+    //*&p = p; 	*&p和p代表同样的值，同样的含义
+    printf("*&p = %p, p = %p\n", *&p, p);
+    // &*p = p; 等式不成立，原因是 指针是一个常量，不能给常量赋值
+    printf("&*p = %p, p = %p\n", &*p, p);
+
+    int* s = NULL;
+    s = &*p; // 等价于 s = &a;
 }
 
 void PointerSeniorTest2() {
@@ -228,7 +237,7 @@ void PointerSeniorTest10() {
 #if 0
 #endif
 int main() {
-	//PointerSeniorTest1();
+	PointerSeniorTest1();
 	//PointerSeniorTest2();
 	//PointerSeniorTest3();
 	//PointerSeniorTest4();
@@ -236,7 +245,7 @@ int main() {
 	//PointerSeniorTest6();
 	//PointerSeniorTest7();
 	//PointerSeniorTest8();
-	PointerSeniorTest9();
+	//PointerSeniorTest9();
 	//PointerSeniorTest10();
     return 0;
 }
