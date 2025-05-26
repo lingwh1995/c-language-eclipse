@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <time.h>
 
-
 int main()
 {
 	// 获取当前时间

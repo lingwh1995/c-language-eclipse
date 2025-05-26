@@ -2,7 +2,9 @@
 
 #define MIN(a,b) (a)<(b) ? (a) : (b)
 #define MAX(a,b) (a)>(b) ? (a) : (b)
+// 错误定义求中间值的带参数宏MID
 //#define MID(a,b,c) (a) + (b) + (c)- MIN(MIN(a,b),c) - MAX(MAX(a,b),c)
+// 正确定义求中间值的带参数宏MID
 #define MID(a,b,c) (a) + (b) + (c) - MAX(MAX(a,b),c) - MIN(MIN(a,b),c)
 
 
