@@ -38,6 +38,7 @@
  *  C语言参考网站
  *      https://zh.cppreference.com/w/
  *      https://cplusplus.com/
+ *      https://wangdoc.com/clang/			推荐
  */
 
 #if 0

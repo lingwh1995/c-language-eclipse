@@ -38,11 +38,24 @@ void PointerSeniorTest2() {
     int a = 10, b = 20;
     int* ap = &a;
     int* bp = &b;
-    if (ap > bp) {
-
+    printf("ap = %p, bp = %p\n", ap, bp);
+    if (ap > bp)
+    {
+    	printf("a的地址比b的地址高\n");
     }
-    if (*ap > *bp) {
+    else
+    {
+    	printf("a的地址比b的地址低\n");
+    }
 
+
+    if (*ap > *bp)
+    {
+    	printf("a的值比b的值大\n");
+    }
+    else
+    {
+    	printf("a的值比b的值小\n");
     }
 }
 
@@ -237,8 +250,8 @@ void PointerSeniorTest10() {
 #if 0
 #endif
 int main() {
-	PointerSeniorTest1();
-	//PointerSeniorTest2();
+	//PointerSeniorTest1();
+	PointerSeniorTest2();
 	//PointerSeniorTest3();
 	//PointerSeniorTest4();
 	//PointerSeniorTest5();

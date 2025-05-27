@@ -73,7 +73,10 @@ void printColor(enum Color color)
 
 int main()
 {
-	/* 整型数据类型 */
+	/**
+	 * 不同数据类型占据的空间大小
+	 */
+
 	// short就是short int
     printf("short类型所占字节大小: %d\n", sizeof(short));
     printf("int类型所占字节大小: %d\n", sizeof(int));
@@ -83,24 +86,20 @@ int main()
     // long long就是long long int
     printf("long long类型所占字节大小: %d\n", sizeof(long long));
     printf("long long int类型所占字节大小: %d\n", sizeof(long long int));
-    printf("-------------------------------------\n");
-
-
     // 字符数据类型
     printf("char类型所占字节大小: %d\n", sizeof(char));
-    printf("-------------------------------------\n");
-
-
     // 浮点型数据类型
     printf("float类型所占字节大小: %d\n", sizeof(float));
     printf("double类型所占字节大小: %d\n", sizeof(double));
     printf("long double类型所占字节大小: %d\n", sizeof(long double));
-    printf("-------------------------------------\n");
-
-
     // 使用bool类型,C99中要引用 stdbool.h
     printf("bool类型所占字节大小: %d\n", sizeof(bool));
     printf("-------------------------------------\n");
+
+
+    /**
+     * 定义不同的数据类型的数据
+     */
 
     // short类型
     short s_signed = -100;
@@ -137,6 +136,15 @@ int main()
     printf("double 值 (默认): d = %lf\n", d);
     printf("double 值 (2位小数): d = %.2lf\n", d);
     printf("科学计数法: d = %e\n", d);
+
+    // char类型
+    char c1 = 'A'; // 等同于 char a = 65;
+    char c2 = 'B'; // 等同于 char b = 66;
+    printf("c1 + c2 = %d\n", c1 + c2); // 输出 131
+
+    // 使用转义字符输出单引号
+    char t = '\'';
+    printf("%c\n", t);
     printf("-------------------------------------\n");
 
 
