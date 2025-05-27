@@ -6,7 +6,7 @@
 
 /**
  * 形参的数据类型为数组时是如何处理的
- * 当把数组作为函数的形参时，数组名退化成指针,目的是为了节省空间和时间
+ *  *当把数组作为函数的形参时，数组名退化成指针，目的是为了节省空间和时间
  *      如果是把整个数组复制一份传递给函数，那么会浪费巨大的空间，假如要传递一个长度为50000的数组，那么就需要额外开辟这么大的空间供函数使用
  */
  //下面方法时错误的，无法正确打印出数组中每一个元素，因为sizeof(nums)求的是指针的长度，32位系统为4个字节， 4/4 = 1，所以只能打印数组中第一个元素
@@ -14,7 +14,9 @@
  * 打印数组
  * @param nums 代表数组的指针
  */
-void PrintArr1(int* nums) //等同于 void PrintArr1(int* nums)
+//void PrintArr1(int nums[])  // 写法一 不推荐
+//void PrintArr1(int nums[5]) // 写法二 不推荐
+void PrintArr1(int* nums)	  // 写法三	推荐
 {
 	// 这里实际上求的是指针的长度
 	printf("sizeof(nums) = %d\n", sizeof(nums));
@@ -42,6 +44,7 @@ void PrintArr2(int* nums, int n)
 }
 
 #if 0
+#endif
 int main()
 {
     int nums[] = { 1,2,3,4,5 };
@@ -52,4 +55,3 @@ int main()
     PrintArr2(nums, length);
     return 0;
 }
-#endif

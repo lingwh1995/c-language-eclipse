@@ -248,7 +248,6 @@ void PointerSeniorTest10() {
 }
 
 #if 0
-#endif
 int main() {
 	//PointerSeniorTest1();
 	PointerSeniorTest2();
@@ -262,3 +261,4 @@ int main() {
 	//PointerSeniorTest10();
     return 0;
 }
+#endif
