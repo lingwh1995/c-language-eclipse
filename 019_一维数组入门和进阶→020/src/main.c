@@ -12,23 +12,49 @@
 /**
  * 一维数组的定义
  */
-void DefineOneDimensionalArrayTest()
+void DefineOneDimensionalArray()
 {
-    // 错误的定义数组的方法
-    //int n = 3;
-    // 错误定义,n必须为一个常量
-	//int arr_1[n] = { 1,2,3 };
+    // 错误的定义数组，演示一：n必须为一个常量，这里n不是一个常量
+	/*
+	 int n = 3;
+	 int arr_1[n] = { 1,2,3 };
+	 */
 
-    // 正确定义:方式一
-    int arr_2[3];
-    // 正确定义:方式二
-    int arr_3[LEN] = { 1,2,3 };
-    // 正确定义:方式三
-    int arr_4[3] = { 1,2,3 };
-    // 正确定义:方式四，效果相当于 int arr_5[3] = { 5,0,0 }
-    int arr_5[3] = { 5 };
+	// 错误的定义数组 演示二： c语言规定，数组变量一旦声明，就不得修改变量指向的地址，修改会报错，重新为数组名赋值，改变原来的内存地址，就会报错
+	/*
+	 int arr_2 = { 1,2,3 };
+	 arr_2 = { 4,5,6 };
+	 */
 
-    // 定义一个未知大小的整形数组
+    // 正确定义数组方式一
+    int arr_3[3];
+    // 正确定义数组方式二
+    int arr_4[LEN] = { 1,2,3 };
+    // 正确定义数组方式三
+    int arr_5[3] = { 1,2,3 };
+    // 正确定义数组方式四
+    int arr_6[3] = { 5 }; // 等同于 int arr_6[3] = { 5,0,0 };
+    // 正确定义数组方式五
+    int arr_7[3] = { 0 }; // 等同于 arr_7[3] = { 0,0,0 };
+    // 正确定义数组方式六
+    // 指定为哪些位置的成员赋值
+    int arr_8[6] = { [1] = 1, [3] = 3, [5] = 5 };
+    // 指定位置的赋值可以不按照顺序，下面的写法与上面的例子是等价的
+    int arr_9[6] = { [3] = 3, [1] = 1, [5] = 5 };
+    // 指定位置的赋值与顺序赋值，可以结合使用
+    int arr_10[6] = { 10, [1] = 1, 20, [3] = 3, 40, [5] = 5 };
+
+    // 省略成员数量时，如果同时采用指定位置的赋值，那么数组长度将是最大的指定位置再加1
+    int arr_11[] = { [2] = 2, [9] = 9 };
+    printf("arr_11的长度 = %d\n", sizeof(arr_11)/sizeof(arr_11[0]));
+    int arr_12[] = { [9] = 9, [2] = 2 };
+    printf("arr_12的长度 = %d\n", sizeof(arr_12)/sizeof(arr_12[0]));
+
+    // 正确定义数组方式七
+    //c语言允许省略方括号里面的数组成员数量，这时将根据大括号里面的值的数量，自动确定数组的长度
+    int arr_13[3] = { 1,2,3 }; // 等同于 int arr_13[] = { 1,2,3 };
+
+    // 定义一个长度为5的整形数组，这里的长度是系统自动计算出来的
     int nums_1[] = { 1,2,3,4,5 };
     int len1 = sizeof(nums_1) / sizeof(nums_1[0]);
     printf("数组长度: len1 = %d\n", len1);
@@ -38,7 +64,7 @@ void DefineOneDimensionalArrayTest()
     }
     printf("--------------------------------\n");
 
-    // 定义一个已知大小的整形数组
+    // 定义一个长度为5的整形数组
     int nums_2[5] = { 1,2,3,4,5 };
     int len2 = sizeof(nums_2) / sizeof(nums_2[0]);
     printf("数组长度: len2 = %d\n", len2);
@@ -67,7 +93,7 @@ void DefineOneDimensionalArrayTest()
 /**
  * 一维数组的长度
  */
-void LengthOfOneDimensionalArrayTest()
+void LengthOfOneDimensionalArray()
 {
     // 如果定义数组时规定了数组的长度,那么不管真实的长度是多少,求出来的长度都是之前规定好的长度
     int arr_1[10] = { 1,2,3,4,5 };
@@ -102,7 +128,7 @@ void LengthOfOneDimensionalArrayTest()
  *  数组的类型
  *  数组的大小
  */
-void TwoAttributeOfOneDimensionalArrayTest()
+void TwoAttributeOfOneDimensionalArray()
 {
     // 计算数组所占空间大小的两种方式
     int arr[5] = { 1,2,3,4,5 };
@@ -136,7 +162,7 @@ void TwoAttributeOfOneDimensionalArrayTest()
 /**
  * 查看不同数据类型数组中每一个元素在内存中的物理地址
  */
-void ViewMemoryPhysicalAddressOfOneDimensionalArrayTest()
+void ViewMemoryPhysicalAddressOfOneDimensionalArray()
 {
     // 可以清晰的观察到一个字符占用一个字节
     char str[] = { "hello" };
@@ -155,13 +181,51 @@ void ViewMemoryPhysicalAddressOfOneDimensionalArrayTest()
     }
 }
 
+/**
+ * 可变长数组
+ */
+void VariableLengthArray()
+{
+	int n = 10;
+
+	// 注意：下面一行放开会报错
+	//int arr_1[n] = { 1,2,3 };
+
+	// 下面三行不会报错
+	int arr_2[n];
+	int arr_3[n + 5];
+	int arr_4[n + 10];
+	printf("arr_2的长度 = %d\n", sizeof(arr_2)/sizeof(arr_2[0]));
+	printf("arr_3的长度 = %d\n", sizeof(arr_3)/sizeof(arr_3[0]));
+	printf("arr_4的长度 = %d\n", sizeof(arr_4)/sizeof(arr_4[0]));
+}
+
+/**
+ * 指针是一个常量，不能修改指针的值
+ */
+void PointIsConst()
+{
+	// 创建变量a、b
+	int a = 10, b = 20;
+	// 把变量a的内存地址存放在指针变量p中
+	int* p = &a;
+	// 把变量b的内存地址存放在指针变量p中
+	p = &b;
+
+	// 数组名就是数组的首元素的内存地址
+	int arr = { 1,2,3 };
+	// 修改数组的首元素的内存地址，会报错，内存地址一旦分配就是一个常量，不能修改
+	//arr = { 4,5,6 };
+}
+
 #if 0
+#endif
 int main()
 {
-	DefineOneDimensionalArrayTest();
-	//LengthOfOneDimensionalArrayTest();
-	//TwoAttributeOfOneDimensionalArrayTest();
-	//ViewMemoryPhysicalAddressOfOneDimensionalArrayTest();
+	//DefineOneDimensionalArray();
+	//LengthOfOneDimensionalArray();
+	//TwoAttributeOfOneDimensionalArray();
+	//ViewMemoryPhysicalAddressOfOneDimensionalArray();
+	VariableLengthArray();
     return 0;
 }
-#endif

@@ -74,7 +74,6 @@ int GetDays_(int year, int month, int day)
 }
 
 #if 0
-#endif
 int main()
 {
     // 获取从第一天到这个日期总共有多少天
@@ -98,3 +97,4 @@ int main()
         break;
     }
 }
+#endif

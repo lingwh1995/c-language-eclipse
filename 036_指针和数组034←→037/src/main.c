@@ -89,6 +89,8 @@ void PointerAndArrayTest3()
  * arr[i]之所以能正确的指向某一个元素,本质上是编译器把 arr[i]翻译成了 *(arr+i)
  * arr[i]和i[arr]都可以正确的打印出数组中的元素的原因?
  *  因为在编译器看来,arr[i]等同于 *(arr+i), i[arr] 等同于 *(i+arr)，所以说通过下标(arr[i])访问数组的方式实际上是通过指针访问数组
+ *
+ * 总结：	a[b] == *(a + b)
  */
 void PointerAndArrayTest4()
 {
