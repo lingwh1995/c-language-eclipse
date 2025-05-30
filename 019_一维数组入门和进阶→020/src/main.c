@@ -219,7 +219,6 @@ void PointIsConst()
 }
 
 #if 0
-#endif
 int main()
 {
 	//DefineOneDimensionalArray();
@@ -229,3 +228,4 @@ int main()
 	VariableLengthArray();
     return 0;
 }
+#endif

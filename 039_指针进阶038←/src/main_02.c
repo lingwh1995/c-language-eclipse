@@ -14,6 +14,8 @@
 /**
  * 打印数组
  * @param nums 代表数组的指针
+ *
+ * 注意：当参数为数组时， [] 和 * 可以互相替换， int nums[] 和 int* nums效果是相同的
  */
 //void PrintArr1(int nums[])  // 写法一 不推荐
 //void PrintArr1(int nums[5]) // 写法二 不推荐
@@ -44,6 +46,21 @@ void PrintArr2(int* nums, int n)
     printf("------------------------------\n");
 }
 
+/**
+ * 使用指针和while循环打印数组
+ */
+void PrintArrayByWhileLoop(int* start, int* end)
+{
+	while(start < end)
+	{
+		// 可以观察到int类型指针每次+1，内存空间便宜的值为4
+		printf("start => %p, end => %p\n", start, end);
+		printf("%d\n", *start);
+		start++;
+	}
+	printf("------------------------------\n");
+}
+
 #if 0
 #endif
 int main()
@@ -54,5 +71,6 @@ int main()
     int length = sizeof(nums) / sizeof(nums[0]);
     // 参数是数组名，也就是数组首元素地址
     PrintArr2(nums, length);
+    PrintArrayByWhileLoop(nums, nums+length);
     return 0;
 }

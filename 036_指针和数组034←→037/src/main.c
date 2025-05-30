@@ -120,6 +120,18 @@ void PointerAndArrayTest5()
 }
 
 /**
+ * 使用指针和while循环打印数组
+ */
+void PrintArrayByWhileLoop(int* start, int* end)
+{
+	while(start < end)
+	{
+		printf("%d\n", *start);
+		start++;
+	}
+}
+
+/**
  * 使用指针访问数组元素
  */
 void PointerAndArrayTest6()
@@ -148,6 +160,8 @@ void PointerAndArrayTest6()
         printf("%d\n", *(arr + i));
     }
     printf("----------4-----------\n");
+    PrintArrayByWhileLoop(arr,arr+5);
+    printf("----------5-----------\n");
 }
 
 int main()
