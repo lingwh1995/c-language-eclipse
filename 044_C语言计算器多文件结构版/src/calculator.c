@@ -53,56 +53,64 @@ void Calc(int a, int b, char op) {
  * @param a 计算参数1
  * @param b 计算参数2
  */
- /*
- int Add_Int(int a, int b) {
-	 return a + b;
- }
- */
+
+int Add_Int(int a, int b) {
+	return a + b;
+}
+
+/*
 static int Add_Int(int a, int b) {
 	return a + b;
 }
+*/
 
 /*
  * 减法，如果不想被外部调用,使用static修饰
  * @param a 计算参数1
  * @param b 计算参数2
  */
- /*
- int Sub_Int(int a, int b) {
-	 return a - b;
- }
- */
+
+int Sub_Int(int a, int b) {
+	return a - b;
+}
+
+/*
 static int Sub_Int(int a, int b) {
 	return a - b;
 }
+*/
 
 /*
  * 乘法，如果不想被外部调用,使用static修饰
  * @param a 计算参数1
  * @param b 计算参数2
  */
- /*
- int Mul_Int(int a, int b) {
-	 return a * b;
- }
- */
+
+int Mul_Int(int a, int b) {
+	return a * b;
+}
+
+/*
 static int Mul_Int(int a, int b) {
 	return a * b;
 }
+*/
 
 /*
  * 除法，如果不想被外部调用,使用static修饰
  * @param a 计算参数1
  * @param b 计算参数2
  */
- /*
- int Div_Int(int a, int b) {
-	 return a / b;
- }
- */
+
+int Div_Int(int a, int b) {
+	return a / b;
+}
+
+/*
 static int Div_Int(int a, int b) {
 	return a / b;
 }
+*/
 
 /*
  * 显示结果，如果不想被外部调用,使用static修饰
@@ -111,11 +119,13 @@ static int Div_Int(int a, int b) {
  * @param op 运算符
  * @param result 计算结果
  */
- /*
- void Show(int a, int b, char op, int result) {
-	 printf("%d %c %d = %d\n", a, op, b, result);
- }
- */
+
+void Show(int a, int b, char op, int result) {
+	printf("%d %c %d = %d\n", a, op, b, result);
+}
+
+/*
 static void Show(int a, int b, char op, int result) {
 	printf("%d %c %d = %d\n", a, op, b, result);
 }
+*/
