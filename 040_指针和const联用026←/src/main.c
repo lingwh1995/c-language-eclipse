@@ -83,6 +83,7 @@ void PointerAndConstTest4() {
 }
 
 #if 0
+#endif
 int main() {
 	//PointerAndConstTest1();
 	//PointerAndConstTest2();
@@ -90,4 +91,3 @@ int main() {
     PointerAndConstTest4();
     return 0;
 }
-#endif
