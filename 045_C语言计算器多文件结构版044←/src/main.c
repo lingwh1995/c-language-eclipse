@@ -20,6 +20,5 @@ int main()
 		rewind(stdin);
 		ch = getchar();
 	} while (ch == 'y' || ch == 'Y');
-
 	return 0;
 }

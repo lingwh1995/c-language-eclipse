@@ -1,6 +1,8 @@
 //使用多文件结构(模块化设计)编写计算器程序:头文件部分
 //#pragma once
 #ifndef CALCULATOR_H
+#define CALCULATOR_H
+
 extern void Calc(int a, int b, char op);
 
 //如果下面的函数不想被外部调用，只需要注释掉即可，这样没有使用extern关键字声明，则外部无法调用这些函数
