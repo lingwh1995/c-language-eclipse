@@ -3,6 +3,7 @@
 #include "calculator.h"
 
 #if 0
+#endif
 //使用多文件结构(模块化设计)编写计算器程序:测试部分
 int main()
 {
@@ -22,7 +23,7 @@ int main()
 
 	return 0;
 }
-#endif
+
 
 //指针
 #if 0
@@ -36,13 +37,3 @@ int main()
 	return 0;
 }
 #endif // 0
-
-//测试多文件结构
-#if 0
-#endif // 0
-int main()
-{
-	fun1();
-	fun2();
-	return 0;
-}
