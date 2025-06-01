@@ -7,7 +7,7 @@
 //#include "a.h"
 
 /**
- * #include :本质是拷贝
+ * #include :本质是拷贝，把头文件中的内容拷贝到当前文件
  * 头文件
  *      xxx.h 相当于java中的导包
  * #include <>和 #include "" 区别?
