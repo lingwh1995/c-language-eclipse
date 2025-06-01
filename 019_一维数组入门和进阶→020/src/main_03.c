@@ -45,7 +45,7 @@ int* CopyArray_2(int* src,int length)
      * src -- 指向要复制的数据源，类型强制转换为 void* 指针。
      * n-- 要被复制的字节数。 
 	 */ 
-	memcpy(dest, src, sizeof(dest));
+	memcpy(dest, src, sizeof(int) * length);
 	return dest;
 }
 
@@ -60,7 +60,7 @@ int main()
 	PrintArray(arr_copy, length);
 
 	// 方式二复制数组
-	arr_copy = CopyArray_1(arr, length);
+	arr_copy = CopyArray_2(arr, length);
 	// 打印数组
 	PrintArray(arr_copy, length);
 	return 0;

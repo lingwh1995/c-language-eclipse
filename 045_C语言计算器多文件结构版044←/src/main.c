@@ -23,17 +23,3 @@ int main()
 
 	return 0;
 }
-
-
-//指针
-#if 0
-int main()
-{
-	const int c = 30;
-	int* pc = &c;
-	*pc = 300;
-	printf("c = %d\n", c);
-
-	return 0;
-}
-#endif // 0
