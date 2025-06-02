@@ -364,6 +364,7 @@ FodyWeavers.xsd
 /.metadata/
 .settings
 .classpath
+.vscode
 main.exe
 main_01.exe
 main_02.exe
