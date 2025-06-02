@@ -16,34 +16,39 @@ void Show(int a, int b, char op, int result);
  * @param b 计算参数2
  * @param op 运算符
  */
-void Calc(int a, int b, char op) {
+void Calc(int a, int b, char op)
+{
 	int result = 0;
 	bool bIsShow = true;
-	switch (op) {
-	case '+':
-		result = Add_Int(a, b);
-		break;
-	case '-':
-		result = Sub_Int(a, b);
-		break;
-	case '*':
-		result = Mul_Int(a, b);
-		break;
-	case '/':
-		bIsShow = false;
-		if (0 == b) {
-			printf("div by zeron error!\n");
-		}
-		else {
-			result = Div_Int(a, b);
-		}
-		break;
-	default:
-		bIsShow = false;
-		printf("op input error!\n");
-		break;
+	switch (op)
+	{
+		case '+':
+			result = Add_Int(a, b);
+			break;
+		case '-':
+			result = Sub_Int(a, b);
+			break;
+		case '*':
+			result = Mul_Int(a, b);
+			break;
+		case '/':
+			if (b == 0)
+			{
+				bIsShow = false;
+				printf("div by zeron error!\n");
+			}
+			else
+			{
+				result = Div_Int(a, b);
+			}
+			break;
+		default:
+			bIsShow = false;
+			printf("op input error!\n");
+			break;
 	}
-	if (bIsShow) {
+	if (bIsShow)
+	{
 		Show(a, b, op, result);
 	}
 }
@@ -54,15 +59,10 @@ void Calc(int a, int b, char op) {
  * @param b 计算参数2
  */
 
-int Add_Int(int a, int b) {
+int Add_Int(int a, int b)
+{
 	return a + b;
 }
-
-/*
-static int Add_Int(int a, int b) {
-	return a + b;
-}
-*/
 
 /*
  * 减法，如果不想被外部调用,使用static修饰
@@ -70,15 +70,10 @@ static int Add_Int(int a, int b) {
  * @param b 计算参数2
  */
 
-int Sub_Int(int a, int b) {
+int Sub_Int(int a, int b)
+{
 	return a - b;
 }
-
-/*
-static int Sub_Int(int a, int b) {
-	return a - b;
-}
-*/
 
 /*
  * 乘法，如果不想被外部调用,使用static修饰
@@ -86,15 +81,10 @@ static int Sub_Int(int a, int b) {
  * @param b 计算参数2
  */
 
-int Mul_Int(int a, int b) {
+int Mul_Int(int a, int b)
+{
 	return a * b;
 }
-
-/*
-static int Mul_Int(int a, int b) {
-	return a * b;
-}
-*/
 
 /*
  * 除法，如果不想被外部调用,使用static修饰
@@ -102,15 +92,10 @@ static int Mul_Int(int a, int b) {
  * @param b 计算参数2
  */
 
-int Div_Int(int a, int b) {
+int Div_Int(int a, int b)
+{
 	return a / b;
 }
-
-/*
-static int Div_Int(int a, int b) {
-	return a / b;
-}
-*/
 
 /*
  * 显示结果，如果不想被外部调用,使用static修饰
@@ -120,12 +105,7 @@ static int Div_Int(int a, int b) {
  * @param result 计算结果
  */
 
-void Show(int a, int b, char op, int result) {
+void Show(int a, int b, char op, int result)
+{
 	printf("%d %c %d = %d\n", a, op, b, result);
 }
-
-/*
-static void Show(int a, int b, char op, int result) {
-	printf("%d %c %d = %d\n", a, op, b, result);
-}
-*/
