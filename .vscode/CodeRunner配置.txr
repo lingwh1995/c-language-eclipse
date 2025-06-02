@@ -1,4 +1,0 @@
-1.windows
-"c": "cd $dir && gcc *.c -o $fileNameWithoutExt && $dir$fileNameWithoutExt.exe",
-2.linux
-"c": "cd $dir && gcc *.c -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
