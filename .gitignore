@@ -365,4 +365,10 @@ FodyWeavers.xsd
 .settings
 .classpath
 main.exe
+main_01.exe
+main_02.exe
+main_03.exe
 main
+main_01
+main_02
+main_03
